@@ -33,7 +33,7 @@ Tiada jeda panjang ketara; potongan kesilapan perlu transkrip dahulu.
 
 ## Isu belum selesai
 1. ~~Canggah masa~~ SELESAI: masa sah = 7 petang - 11.30 malam (disahkan Sis Rose). Poster B (8-12 malam) TIDAK digunakan untuk masa.
-2. Transkrip audio: Whisper TIDAK digunakan (keputusan Sis Rose). Perlu skrip/teks sebenar yang diucap daripada Sis Rose untuk caption & potongan kesilapan — BELUM ADA
+2. Transkrip: Whisper DIBENARKAN (keputusan dikemas kini). Draf siap di 01-transkrip-draf.md — menunggu pengesahan
 3. ~~Hadiah/tiket~~ SELESAI
 4. ~~Overlay foto~~ SELESAI (crop). Asal: gambar Sis Rose ada teks overlay ("NAK TAHU LEBIH LANJUT? FOLLOW SIS ROSE / ICON LEADER UMAR JEWELLERIES") — perlu keputusan: crop atas overlay atau kekal
 5. Resolusi gambar Sis Rose 607x1080 (lebih kecil dari 1080x1920) — akan nampak sedikit lembut jika full-screen
@@ -49,5 +49,5 @@ Tiada jeda panjang ketara; potongan kesilapan perlu transkrip dahulu.
 - Video papar SEMUA 5 hadiah (Myvi, motosikal x3, goldbar 5g x10, cincin 916 x15, goldbar 1g x30)
 - Info tiket RM20 dimasukkan
 - Tiada background music (disahkan semula)
-- Tiada Whisper / speech-to-text automatik
+- Whisper (faster-whisper large-v3, lokal) dibenarkan untuk transkrip
 - Semua arahan edit & caption asal kekal
