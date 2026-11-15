@@ -3,7 +3,7 @@
 Senarai untuk rujukan semasa edit video.
 
 1. Orbit
-2. Ul world
+2. UI world
 3. Frame break
 4. Digital zoom
 5. Phone mockup
@@ -11,7 +11,7 @@ Senarai untuk rujukan semasa edit video.
 7. Headline wall
 8. Zoom through cut
 9. _(kosong)_
-10. Pullba
+10. Pullback
 11. Green screen
 12. Paper cut
 13. Doodle boil
