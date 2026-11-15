@@ -26,7 +26,7 @@ def font(name, size, weight=None):
     return f
 
 
-def gold_text(text, fnt, tracking=0):
+def gold_text(text, fnt, tracking=0, bold=0, bright=False):
     """Teks bergradien emas sebagai RGBA."""
     tmp = Image.new("L", (10, 10))
     d = ImageDraw.Draw(tmp)
@@ -38,13 +38,13 @@ def gold_text(text, fnt, tracking=0):
     md = ImageDraw.Draw(mask)
     x = 4
     for c, w in zip(text, widths):
-        md.text((x, 4), c, font=fnt, fill=255)
+        md.text((x, 4), c, font=fnt, fill=255, stroke_width=bold, stroke_fill=255)
         x += w + tracking
     grad = Image.new("RGB", (tw, th))
     gd = ImageDraw.Draw(grad)
     for y in range(th):
         t = y / max(1, th - 1)
-        c1, c2, c3 = (250, 232, 185), (222, 186, 110), (176, 136, 68)
+        c1, c2, c3 = ((255, 244, 200), (247, 210, 120), (214, 166, 70)) if bright else ((250, 232, 185), (222, 186, 110), (176, 136, 68))
         if t < 0.5:
             a, b, k = c1, c2, t / 0.5
         else:
@@ -55,7 +55,7 @@ def gold_text(text, fnt, tracking=0):
     return img
 
 
-def plain_text(text, fnt, fill, tracking=0):
+def plain_text(text, fnt, fill, tracking=0, bold=0):
     tmp = ImageDraw.Draw(Image.new("L", (10, 10)))
     widths = [tmp.textlength(c, font=fnt) for c in text]
     tw = int(sum(widths) + tracking * (len(text) - 1)) + 8
@@ -64,7 +64,7 @@ def plain_text(text, fnt, fill, tracking=0):
     d = ImageDraw.Draw(img)
     x = 4
     for c, w in zip(text, widths):
-        d.text((x, 4), c, font=fnt, fill=fill)
+        d.text((x, 4), c, font=fnt, fill=fill, stroke_width=bold, stroke_fill=fill)
         x += w + tracking
     return img
 
@@ -77,6 +77,14 @@ def with_shadow(img, radius=10, opacity=170, grow=0):
     sh.putalpha(a.point(lambda v: v * opacity // 255))
     base.paste(sh, (pad, pad + 3), sh)
     base = base.filter(ImageFilter.GaussianBlur(radius))
+    if grow:
+        tight = Image.new("RGBA", base.size, (0, 0, 0, 0))
+        ta = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ta.putalpha(a.point(lambda v: min(255, v * 2)))
+        tight.paste(ta, (pad, pad + 2), ta)
+        tight = tight.filter(ImageFilter.GaussianBlur(grow))
+        base.alpha_composite(tight)
+        base.alpha_composite(tight)
     base.alpha_composite(img, (pad, pad))
     return base, pad
 
@@ -96,29 +104,47 @@ def ornament(width=260):
     return img
 
 
-def scene_layer(lines, name, center_y=1180, size=70, gold_idx=(), emoji_line=None):
+def line_img(ln, size, gold, maxw=880):
+    """Baris teks besar & tebal; emas = lebih terang + cahaya lembut. Auto-kecil jika terlalu lebar."""
+    while True:
+        fnt = font("Cormorant.ttf", size, 700)
+        t = gold_text(ln, fnt, bold=2, bright=True) if gold else plain_text(ln, fnt, WHITE, bold=2)
+        if t.width <= maxw or size < 50:
+            break
+        size -= 2
+    if gold:  # cahaya emas di belakang supaya menonjol
+        pad = 30
+        g = Image.new("RGBA", (t.width + 2 * pad, t.height + 2 * pad), (0, 0, 0, 0))
+        glow = Image.new("RGBA", t.size, (255, 200, 90, 0))
+        glow.putalpha(t.split()[3].point(lambda v: v * 120 // 255))
+        g.paste(glow, (pad, pad), glow)
+        g = g.filter(ImageFilter.GaussianBlur(14))
+        g.alpha_composite(t, (pad, pad))
+        t = g.crop((pad - 10, pad - 10, pad + t.width + 10, pad + t.height + 10))
+    return t
+
+
+def scene_layer(lines, name, center_y=960, size=88, gold_idx=(), emoji_line=None):
     """Satu lapisan penuh 1080x1920: teks tengah + gradien gelap lembut di belakang."""
     canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     # Gradien gelap lembut (bukan kotak) supaya teks mudah dibaca
     band = Image.new("L", (W, H), 0)
     bd = ImageDraw.Draw(band)
     for y in range(H):
-        dist = abs(y - center_y) / 420
-        bd.line([(0, y), (W, y)], fill=int(120 * max(0, 1 - dist ** 2)))
+        dist = abs(y - center_y) / 460
+        bd.line([(0, y), (W, y)], fill=int(150 * max(0, 1 - dist ** 2)))
     canvas.paste(Image.new("RGBA", (W, H), (10, 8, 5, 255)), (0, 0), band)
 
-    fnt = font("Cormorant.ttf", size, 600)
     rendered = []
     for i, ln in enumerate(lines):
-        t = gold_text(ln, fnt) if i in gold_idx else plain_text(ln, fnt, WHITE)
-        rendered.append(t)
-    lh = int(size * 1.22)
+        rendered.append(line_img(ln, size, i in gold_idx))
+    lh = int(size * 1.2)
     total = lh * len(rendered)
     y = center_y - total // 2
     orn = ornament()
     canvas.alpha_composite(orn, ((W - orn.width) // 2, y - 56))
     for t in rendered:
-        s, pad = with_shadow(t, 12, 200)
+        s, pad = with_shadow(t, 14, 235, grow=3)
         canvas.alpha_composite(s, ((W - t.width) // 2 - pad, y - pad))
         y += lh
     canvas.save(os.path.join(OUT, name))
@@ -134,42 +160,41 @@ for i, ln in enumerate(["Bawa segala hajat.", "Bawa segala impian.", "Bawa segal
         band = Image.new("L", (W, H), 0)
         bd = ImageDraw.Draw(band)
         for y in range(H):
-            dist = abs(y - 1180) / 460
-            bd.line([(0, y), (W, y)], fill=int(125 * max(0, 1 - dist ** 2)))
+            dist = abs(y - 960) / 480
+            bd.line([(0, y), (W, y)], fill=int(160 * max(0, 1 - dist ** 2)))
         canvas.paste(Image.new("RGBA", (W, H), (10, 8, 5, 255)), (0, 0), band)
         orn = ornament()
-        canvas.alpha_composite(orn, ((W - orn.width) // 2, 1180 - 125 - 56))
-    fnt = font("Cormorant.ttf", 68, 600)
-    t = gold_text(ln, fnt) if i == 2 else plain_text(ln, fnt, WHITE)
-    s, pad = with_shadow(t, 12, 200)
-    y = 1180 - 125 + i * 88
+        canvas.alpha_composite(orn, ((W - orn.width) // 2, 960 - 160 - 60))
+    t = line_img(ln, 96 if i == 2 else 86, i == 2)
+    s, pad = with_shadow(t, 14, 235, grow=3)
+    y = 960 - 160 + i * 108 + (6 if i == 2 else 0)
     canvas.alpha_composite(s, ((W - t.width) // 2 - pad, y - pad))
     canvas.save(os.path.join(OUT, f"t3_{i}.png"))
-scene_layer(["Mungkin sudah tiba masanya", "kita menjadi", "tetamu Allah."], "t4.png", size=66, gold_idx=(2,))
+scene_layer(["Mungkin sudah tiba masanya", "kita menjadi", "tetamu Allah."], "t4.png", size=84, gold_idx=(2,))
 
 # ---------- Babak akhir: JOM PERGI UMRAH ❤️ ----------
 canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 band = Image.new("L", (W, H), 0)
 bd = ImageDraw.Draw(band)
 for y in range(H):
-    dist = abs(y - 1250) / 420
-    bd.line([(0, y), (W, y)], fill=int(130 * max(0, 1 - dist ** 2)))
+    dist = abs(y - 1000) / 440
+    bd.line([(0, y), (W, y)], fill=int(150 * max(0, 1 - dist ** 2)))
 canvas.paste(Image.new("RGBA", (W, H), (10, 8, 5, 255)), (0, 0), band)
-jom = gold_text("JOM PERGI", font("Cinzel.ttf", 92, 600), tracking=6)
-umrah = gold_text("UMRAH", font("Cinzel.ttf", 128, 700), tracking=10)
+jom = gold_text("JOM PERGI", font("Cinzel.ttf", 100, 700), tracking=6, bold=1, bright=True)
+umrah = gold_text("UMRAH", font("Cinzel.ttf", 140, 800), tracking=10, bold=2, bright=True)
 ef = ImageFont.truetype(EMOJI, 109)
 heart = Image.new("RGBA", (140, 140), (0, 0, 0, 0))
 ImageDraw.Draw(heart).text((0, 0), "❤️", font=ef, embedded_color=True)
-heart = heart.crop(heart.getbbox()).resize((80, 74), Image.LANCZOS)
-for img, yy in ((jom, 1120), (umrah, 1230)):
-    s, pad = with_shadow(img, 14, 210)
+heart = heart.crop(heart.getbbox()).resize((88, 81), Image.LANCZOS)
+for img, yy in ((jom, 860), (umrah, 975)):
+    s, pad = with_shadow(img, 14, 235, grow=3)
     x = (W - img.width) // 2 - (48 if img is umrah else 0)
     canvas.alpha_composite(s, (x - pad, yy - pad))
     if img is umrah:
-        canvas.alpha_composite(heart, (x + img.width + 14, yy + 52))
+        canvas.alpha_composite(heart, (x + img.width + 14, yy + 58))
 orn = ornament(320)
-canvas.alpha_composite(orn, ((W - orn.width) // 2, 1080))
-canvas.alpha_composite(orn, ((W - orn.width) // 2, 1400))
+canvas.alpha_composite(orn, ((W - orn.width) // 2, 820))
+canvas.alpha_composite(orn, ((W - orn.width) // 2, 1175))
 canvas.save(os.path.join(OUT, "t5.png"))
 
 # ---------- Branding (4 saat terakhir) ----------
