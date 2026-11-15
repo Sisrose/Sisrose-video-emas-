@@ -11,3 +11,10 @@ Fail asal kekal di lokasi upload, tidak di-rename/move. Diperiksa: metadata (ffp
 | 5 | e16053f0-image.jpg | — | 720x1280 | Potret studio rasmi: blazer hitam, tudung nude, latar studio krim/emas (bukan Masjidil Haram) | — |
 
 Jumlah footage mentah ≈ 37s. Klip Kaabah sebenar hanya ~8s. Tiada footage tawaf. Tiada fail muzik. Tiada logo TH TRAVEL.
+| 6 | 6d8f2484-image.jpg (IMG_9989) | — | 941x1672 | Gambar pegun: wanita berjubah hitam duduk atas sejadah menghadap Kaabah, Menara Jam, langit senja. Tiada wajah. Tiada metadata. Gaya sangat licin — sumber belum disahkan (foto sendiri / stok / janaan?) | — |
+
+## Keputusan setakat ini
+- Muzik: TIADA dalam export. Pengguna letak bunyi sendiri di TikTok. Audio asal dicadang dimute.
+- Klip 1 (berniqab) = pengguna sendiri, boleh guna.
+- Logo TH TRAVEL: belum dijawab → andaian sementara teks sahaja.
+- Skrip teks 5 babak + branding: dikunci, wording asal.
