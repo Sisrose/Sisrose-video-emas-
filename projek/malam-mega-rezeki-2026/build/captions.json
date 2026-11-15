@@ -1,0 +1,726 @@
+[
+ {
+  "s": 0.02,
+  "e": 1.44,
+  "words": [
+   {
+    "t": 0.08,
+    "w": "Kepada",
+    "hl": false
+   },
+   {
+    "t": 0.76,
+    "w": "semua",
+    "hl": false
+   },
+   {
+    "t": 1.24,
+    "w": "dealer-dealer",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 1.44,
+  "e": 2.66,
+  "words": [
+   {
+    "t": 1.5,
+    "w": "UMAR",
+    "hl": true
+   },
+   {
+    "t": 1.96,
+    "w": "JEWELLERIES,",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 2.66,
+  "e": 6.24,
+  "words": [
+   {
+    "t": 2.72,
+    "w": "jom",
+    "hl": false
+   },
+   {
+    "t": 3.98,
+    "w": "kita",
+    "hl": false
+   },
+   {
+    "t": 4.86,
+    "w": "ramai-ramai",
+    "hl": false
+   },
+   {
+    "t": 5.42,
+    "w": "meriahkan",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 6.24,
+  "e": 7.82,
+  "words": [
+   {
+    "t": 6.3,
+    "w": "Malam",
+    "hl": true
+   },
+   {
+    "t": 7.24,
+    "w": "Mega",
+    "hl": true
+   },
+   {
+    "t": 7.42,
+    "w": "Rezeki",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 7.82,
+  "e": 8.8,
+  "words": [
+   {
+    "t": 7.88,
+    "w": "UMAR",
+    "hl": true
+   },
+   {
+    "t": 8.4,
+    "w": "JEWELLERIES",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 8.8,
+  "e": 11.44,
+  "words": [
+   {
+    "t": 8.86,
+    "w": "pada",
+    "hl": false
+   },
+   {
+    "t": 9.1,
+    "w": "19",
+    "hl": true
+   },
+   {
+    "t": 9.42,
+    "w": "Disember",
+    "hl": true
+   },
+   {
+    "t": 10.18,
+    "w": "2026",
+    "hl": true
+   },
+   {
+    "t": 10.9,
+    "w": "nanti.",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 11.44,
+  "e": 13.78,
+  "words": [
+   {
+    "t": 11.5,
+    "w": "Pada",
+    "hl": false
+   },
+   {
+    "t": 12.22,
+    "w": "malam",
+    "hl": false
+   },
+   {
+    "t": 12.54,
+    "w": "tu",
+    "hl": false
+   },
+   {
+    "t": 12.7,
+    "w": "kita",
+    "hl": false
+   },
+   {
+    "t": 12.9,
+    "w": "akan",
+    "hl": false
+   },
+   {
+    "t": 13.14,
+    "w": "berkumpul",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 13.78,
+  "e": 16.03,
+  "words": [
+   {
+    "t": 13.84,
+    "w": "di",
+    "hl": false
+   },
+   {
+    "t": 13.9,
+    "w": "HQ",
+    "hl": true
+   },
+   {
+    "t": 14.42,
+    "w": "Bertam,",
+    "hl": true
+   },
+   {
+    "t": 14.92,
+    "w": "Pulau",
+    "hl": false
+   },
+   {
+    "t": 15.3,
+    "w": "Pinang.",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 16.04,
+  "e": 17.82,
+  "words": [
+   {
+    "t": 16.1,
+    "w": "Malam",
+    "hl": false
+   },
+   {
+    "t": 16.42,
+    "w": "tu",
+    "hl": false
+   },
+   {
+    "t": 16.52,
+    "w": "bukan",
+    "hl": false
+   },
+   {
+    "t": 16.82,
+    "w": "sekadar",
+    "hl": false
+   },
+   {
+    "t": 17.12,
+    "w": "tentang",
+    "hl": false
+   },
+   {
+    "t": 17.34,
+    "w": "hadiah,",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 17.82,
+  "e": 19.52,
+  "words": [
+   {
+    "t": 17.88,
+    "w": "tapi",
+    "hl": false
+   },
+   {
+    "t": 18.16,
+    "w": "juga",
+    "hl": false
+   },
+   {
+    "t": 18.46,
+    "w": "tentang",
+    "hl": false
+   },
+   {
+    "t": 18.84,
+    "w": "kenangan,",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 19.52,
+  "e": 21.16,
+  "words": [
+   {
+    "t": 19.58,
+    "w": "persahabatan",
+    "hl": true
+   },
+   {
+    "t": 20.58,
+    "w": "dan",
+    "hl": false
+   },
+   {
+    "t": 20.8,
+    "w": "ukhuwah",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 21.16,
+  "e": 22.96,
+  "words": [
+   {
+    "t": 21.22,
+    "w": "yang",
+    "hl": false
+   },
+   {
+    "t": 21.34,
+    "w": "kita",
+    "hl": false
+   },
+   {
+    "t": 21.62,
+    "w": "bina",
+    "hl": false
+   },
+   {
+    "t": 21.92,
+    "w": "sepanjang",
+    "hl": false
+   },
+   {
+    "t": 22.46,
+    "w": "bersama",
+    "hl": false
+   },
+   {
+    "t": 22.8,
+    "w": "UJ.",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 22.96,
+  "e": 24.98,
+  "words": [
+   {
+    "t": 23.02,
+    "w": "Tapi",
+    "hl": false
+   },
+   {
+    "t": 23.62,
+    "w": "mestilah",
+    "hl": false
+   },
+   {
+    "t": 24.3,
+    "w": "kita",
+    "hl": false
+   },
+   {
+    "t": 24.5,
+    "w": "teruja",
+    "hl": false
+   },
+   {
+    "t": 24.84,
+    "w": "juga,",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 24.98,
+  "e": 27.78,
+  "words": [
+   {
+    "t": 25.04,
+    "w": "sebab",
+    "hl": false
+   },
+   {
+    "t": 25.82,
+    "w": "ada",
+    "hl": false
+   },
+   {
+    "t": 26.26,
+    "w": "hadiah",
+    "hl": false
+   },
+   {
+    "t": 27.08,
+    "w": "yang",
+    "hl": false
+   },
+   {
+    "t": 27.36,
+    "w": "menarik",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 27.78,
+  "e": 30.32,
+  "words": [
+   {
+    "t": 27.84,
+    "w": "iaitu",
+    "hl": false
+   },
+   {
+    "t": 28.3,
+    "w": "Grand",
+    "hl": true
+   },
+   {
+    "t": 28.5,
+    "w": "Prize,",
+    "hl": true
+   },
+   {
+    "t": 29.26,
+    "w": "Myvi,",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 30.32,
+  "e": 32.47,
+  "words": [
+   {
+    "t": 30.38,
+    "w": "lepas",
+    "hl": false
+   },
+   {
+    "t": 31.1,
+    "w": "tu",
+    "hl": false
+   },
+   {
+    "t": 31.22,
+    "w": "3",
+    "hl": true
+   },
+   {
+    "t": 31.5,
+    "w": "buah",
+    "hl": true
+   },
+   {
+    "t": 31.9,
+    "w": "motor,",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 32.58,
+  "e": 34.5,
+  "words": [
+   {
+    "t": 32.64,
+    "w": "goldbar,",
+    "hl": true
+   },
+   {
+    "t": 33.6,
+    "w": "barang",
+    "hl": true
+   },
+   {
+    "t": 34.12,
+    "w": "kemas",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 34.5,
+  "e": 35.7,
+  "words": [
+   {
+    "t": 34.56,
+    "w": "dan",
+    "hl": false
+   },
+   {
+    "t": 35.04,
+    "w": "macam-macam",
+    "hl": false
+   },
+   {
+    "t": 35.34,
+    "w": "lagi.",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 35.7,
+  "e": 37.9,
+  "words": [
+   {
+    "t": 35.76,
+    "w": "Tiket",
+    "hl": false
+   },
+   {
+    "t": 36.44,
+    "w": "hanyalah",
+    "hl": false
+   },
+   {
+    "t": 36.78,
+    "w": "RM20",
+    "hl": true
+   },
+   {
+    "t": 37.36,
+    "w": "seorang,",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 37.9,
+  "e": 39.62,
+  "words": [
+   {
+    "t": 37.96,
+    "w": "kanak-kanak",
+    "hl": false
+   },
+   {
+    "t": 38.5,
+    "w": "di",
+    "hl": false
+   },
+   {
+    "t": 38.92,
+    "w": "bawah",
+    "hl": false
+   },
+   {
+    "t": 39.22,
+    "w": "6",
+    "hl": false
+   },
+   {
+    "t": 39.36,
+    "w": "tahun",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 39.62,
+  "e": 40.46,
+  "words": [
+   {
+    "t": 39.68,
+    "w": "percuma",
+    "hl": true
+   },
+   {
+    "t": 40.2,
+    "w": "je.",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 40.46,
+  "e": 41.5,
+  "words": [
+   {
+    "t": 40.52,
+    "w": "Jangan",
+    "hl": false
+   },
+   {
+    "t": 40.9,
+    "w": "lupa",
+    "hl": false
+   },
+   {
+    "t": 41.32,
+    "w": "tau,",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 41.5,
+  "e": 44.14,
+  "words": [
+   {
+    "t": 41.56,
+    "w": "pakai",
+    "hl": false
+   },
+   {
+    "t": 42.14,
+    "w": "pakaian",
+    "hl": false
+   },
+   {
+    "t": 42.78,
+    "w": "Melayu",
+    "hl": true
+   },
+   {
+    "t": 43.3,
+    "w": "Klasik.",
+    "hl": true
+   }
+  ]
+ },
+ {
+  "s": 44.14,
+  "e": 44.9,
+  "words": [
+   {
+    "t": 44.2,
+    "w": "Jom",
+    "hl": false
+   },
+   {
+    "t": 44.34,
+    "w": "kita",
+    "hl": false
+   },
+   {
+    "t": 44.48,
+    "w": "meriahkan",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 44.9,
+  "e": 46.0,
+  "words": [
+   {
+    "t": 44.96,
+    "w": "malam",
+    "hl": false
+   },
+   {
+    "t": 45.4,
+    "w": "ni",
+    "hl": false
+   },
+   {
+    "t": 45.7,
+    "w": "bersama-sama.",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 46.0,
+  "e": 46.96,
+  "words": [
+   {
+    "t": 46.06,
+    "w": "Dealer",
+    "hl": false
+   },
+   {
+    "t": 46.42,
+    "w": "dari",
+    "hl": false
+   },
+   {
+    "t": 46.56,
+    "w": "negeri",
+    "hl": false
+   },
+   {
+    "t": 46.9,
+    "w": "mana",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 46.96,
+  "e": 47.66,
+  "words": [
+   {
+    "t": 47.02,
+    "w": "yang",
+    "hl": false
+   },
+   {
+    "t": 47.2,
+    "w": "akan",
+    "hl": false
+   },
+   {
+    "t": 47.34,
+    "w": "hadir?",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 47.66,
+  "e": 49.24,
+  "words": [
+   {
+    "t": 47.72,
+    "w": "Cuba",
+    "hl": false
+   },
+   {
+    "t": 47.94,
+    "w": "komen",
+    "hl": false
+   },
+   {
+    "t": 48.72,
+    "w": "negeri",
+    "hl": false
+   },
+   {
+    "t": 48.88,
+    "w": "masing-masing.",
+    "hl": false
+   }
+  ]
+ },
+ {
+  "s": 49.24,
+  "e": 50.17,
+  "words": [
+   {
+    "t": 49.3,
+    "w": "Jom!",
+    "hl": true
+   }
+  ]
+ }
+]

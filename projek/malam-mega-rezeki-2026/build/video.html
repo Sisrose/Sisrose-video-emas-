@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<title>Malam Mega Rezeki 2026</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --gold1:#fff4c2; --gold2:#f5d27a; --gold3:#d9a43c; --gold4:#a8741c;
+  --maroon:#6b1024; --maroon2:#3d0614; --navy:#0b1636; --navy2:#050a1d;
+  --cream:#fbf5ea;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#050a1d}
+#stage{position:absolute;inset:0;width:1080px;height:1920px;overflow:hidden;font-family:Montserrat,sans-serif;color:#fff}
+.abs{position:absolute}
+.scene{position:absolute;inset:0;opacity:0;will-change:opacity,transform}
+.center{left:0;right:0;text-align:center}
+.goldtxt{background:linear-gradient(180deg,var(--gold1) 0%,var(--gold2) 35%,var(--gold3) 65%,var(--gold4) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 6px rgba(0,0,0,.55))}
+.cinzel{font-family:Cinzel,serif;font-weight:800;letter-spacing:.04em}
+.script{font-family:'Great Vibes',cursive;font-weight:400}
+.play{font-family:'Playfair Display',serif}
+.label{font-family:Montserrat;font-weight:800;letter-spacing:.32em;font-size:30px;color:var(--gold2);text-transform:uppercase}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));
+  border:3px solid rgba(245,210,122,.85);border-radius:34px;
+  box-shadow:0 0 0 8px rgba(245,210,122,.12),0 30px 60px rgba(0,0,0,.45),inset 0 0 40px rgba(245,210,122,.10)}
+.ribbon{background:linear-gradient(180deg,#9a1a33,#6b1024 60%,#4a0918);border:3px solid var(--gold2);
+  border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.crop{background-repeat:no-repeat;border-radius:22px}
+.pill{display:inline-block;border-radius:999px;padding:18px 44px;font-weight:800;font-size:46px}
+/* latar */
+#bg{position:absolute;inset:0;background:
+  radial-gradient(ellipse 120% 60% at 50% 18%,#2a1650 0%,rgba(42,22,80,0) 60%),
+  radial-gradient(ellipse 120% 70% at 50% 100%,#5a0d22 0%,rgba(90,13,34,0) 65%),
+  linear-gradient(180deg,#0b1636 0%,#120c2e 45%,#2a0815 100%)}
+#bgimg{position:absolute;inset:-60px;background-size:cover;background-position:center;filter:blur(26px) brightness(.42) saturate(1.1);opacity:0}
+#rays{position:absolute;inset:0;background:
+  repeating-conic-gradient(from 0deg at 50% -10%,rgba(255,220,140,.05) 0deg 4deg,rgba(255,220,140,0) 4deg 12deg);mix-blend-mode:screen}
+#frame{position:absolute;inset:34px;border:2px solid rgba(245,210,122,.55);border-radius:28px;pointer-events:none}
+#frame2{position:absolute;inset:46px;border:1px solid rgba(245,210,122,.25);border-radius:22px}
+.corner{position:absolute;width:90px;height:90px;border:5px solid var(--gold2);opacity:.9}
+.particle{position:absolute;border-radius:50%;background:radial-gradient(circle,#fff6d0 0%,#f5d27a 40%,rgba(245,210,122,0) 70%)}
+/* caption */
+#cap{position:absolute;left:70px;right:70px;top:1330px;min-height:200px;display:flex;align-items:center;justify-content:center}
+#capbox{padding:26px 40px;border-radius:30px;background:rgba(8,6,24,.62);border:2px solid rgba(245,210,122,.45);
+  box-shadow:0 20px 50px rgba(0,0,0,.45);text-align:center;line-height:1.22;max-width:940px}
+.cw{display:inline-block;font-family:Montserrat;font-weight:900;font-size:64px;color:#fff;margin:0 13px;
+  text-shadow:0 4px 0 rgba(0,0,0,.55),0 0 18px rgba(0,0,0,.4);transform-origin:50% 50%}
+.cw.hl{color:#ffd76e}
+.cw.on{color:#ffe28a}
+/* ending */
+#end{position:absolute;inset:0;opacity:0;background:
+  radial-gradient(ellipse 90% 55% at 50% 30%,#fffaf0 0%,rgba(255,250,240,0) 70%),
+  radial-gradient(ellipse 80% 50% at 0% 100%,rgba(184,167,214,.55) 0%,rgba(184,167,214,0) 70%),
+  radial-gradient(ellipse 80% 50% at 100% 90%,rgba(156,175,136,.65) 0%,rgba(156,175,136,0) 70%),
+  linear-gradient(180deg,#f6efe2 0%,#efe6d4 50%,#e4dcc6 100%)}
+#endArch{position:absolute;left:220px;top:214px;width:640px;height:742px;border-radius:320px 320px 30px 30px;
+  border:6px solid #cfae6a;box-shadow:0 0 0 14px rgba(207,174,106,.22),0 40px 70px rgba(90,70,40,.35)}
+#rosePhoto{position:absolute;left:236px;top:230px;width:608px;height:710px;border-radius:304px 304px 22px 22px;overflow:hidden;
+  background:#efe6d4}
+#rosePhoto img{position:absolute;left:0;top:0;width:608px;height:auto}
+.sage{background:#9caf88}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+  <div id="bgimg"></div>
+  <div id="rays"></div>
+  <div id="particles"></div>
+  <div id="frame"></div><div id="frame2"></div>
+  <div class="corner" style="left:30px;top:30px;border-right:none;border-bottom:none;border-radius:26px 0 0 0"></div>
+  <div class="corner" style="right:30px;top:30px;border-left:none;border-bottom:none;border-radius:0 26px 0 0"></div>
+  <div class="corner" style="left:30px;bottom:30px;border-right:none;border-top:none;border-radius:0 0 0 26px"></div>
+  <div class="corner" style="right:30px;bottom:30px;border-left:none;border-top:none;border-radius:0 0 26px 0"></div>
+
+  <!-- S1 INTRO -->
+  <div class="scene" id="s1">
+    <div class="abs crop" id="logo1" style="left:330px;top:150px;width:420px;height:165px;background-image:url(assets/poster_b.jpg);
+      background-size:1536px auto;background-position:-555px -22px;border-radius:18px"></div>
+    <div class="abs center" id="s1a" style="top:560px">
+      <div class="label">Jemputan Khas</div>
+      <div class="play" style="font-weight:800;font-size:96px;margin-top:22px;line-height:1.05"><span class="goldtxt">Untuk Semua</span><br><span style="color:#fff">Dealer</span></div>
+      <div style="margin:34px auto 0;width:260px;height:3px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)"></div>
+    </div>
+    <div class="abs center" id="s1b" style="top:395px">
+      <div class="script goldtxt" id="tMalam" style="font-size:250px;line-height:1">Malam</div>
+      <div class="cinzel goldtxt" id="tMega" style="font-size:132px;line-height:1.02;margin-top:-30px">MEGA</div>
+      <div class="cinzel goldtxt" id="tRezeki" style="font-size:132px;line-height:1.02">REZEKI</div>
+      <div class="ribbon" id="tRibbon" style="display:inline-block;margin-top:26px;padding:16px 46px">
+        <span class="cinzel" style="font-size:50px;color:#fff;letter-spacing:.06em">UMAR JEWELLERIES 2026</span></div>
+      <div id="tCabutan" style="margin-top:22px"><span class="label" style="font-size:28px">✦ Majlis Cabutan Bertuah ✦</span></div>
+    </div>
+    <div class="abs card" id="dateCard" style="left:150px;width:780px;top:1065px;height:200px;display:flex;align-items:center;justify-content:center;gap:34px">
+      <div style="width:110px;height:120px;border-radius:18px;background:#fff;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.4);text-align:center">
+        <div style="background:#9a1a33;color:#fff;font-weight:800;font-size:24px;padding:6px 0">DIS</div>
+        <div style="color:#3d0614;font-family:'Playfair Display';font-weight:800;font-size:64px;line-height:84px">19</div></div>
+      <div style="text-align:left">
+        <div class="cinzel goldtxt" style="font-size:58px;line-height:1.05">19 DISEMBER 2026</div>
+        <div style="font-weight:700;font-size:36px;color:#fff;margin-top:8px;letter-spacing:.08em">SABTU · 7 PTG – 11.30 MLM</div></div>
+    </div>
+  </div>
+
+  <!-- S2 LOKASI -->
+  <div class="scene" id="s2">
+    <div class="abs center" style="top:250px"><div class="label">Lokasi Majlis</div></div>
+    <div class="abs card" id="locCard" style="left:110px;width:860px;top:340px;height:840px;text-align:center;padding-top:70px">
+      <svg width="150" height="190" viewBox="0 0 24 30" style="filter:drop-shadow(0 8px 10px rgba(0,0,0,.5))">
+        <defs><linearGradient id="gp" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff4c2"/><stop offset=".5" stop-color="#e2b24f"/><stop offset="1" stop-color="#a8741c"/></linearGradient></defs>
+        <path d="M12 0C5.4 0 0 5.2 0 11.7 0 20.5 12 30 12 30s12-9.5 12-18.3C24 5.2 18.6 0 12 0z" fill="url(#gp)"/>
+        <circle cx="12" cy="11.5" r="4.6" fill="#6b1024"/></svg>
+      <div class="cinzel goldtxt" style="font-size:84px;margin-top:30px;line-height:1.08">HQ UMAR<br>JEWELLERIES</div>
+      <div class="play" style="font-weight:700;font-size:58px;margin-top:26px;color:#fff">Bertam Perdana,<br>Pulau Pinang</div>
+      <div style="margin:34px auto 0;width:520px;height:2px;background:linear-gradient(90deg,transparent,var(--gold2),transparent)"></div>
+      <div style="font-weight:500;font-size:31px;line-height:1.45;margin-top:28px;color:#f3e6c8">3G, Jln Perdagangan 15,<br>Pusat Bandar Bertam Perdana,<br>13200 Kepala Batas, Pulau Pinang</div>
+    </div>
+  </div>
+
+  <!-- S3 UKHUWAH -->
+  <div class="scene" id="s3">
+    <div class="abs center" id="s3t" style="top:250px">
+      <div class="play" style="font-style:italic;font-weight:700;font-size:74px;line-height:1.15;color:#fff">Bukan sekadar<br><span class="goldtxt">tentang hadiah…</span></div>
+    </div>
+    <div class="abs center" style="top:600px">
+      <div id="v1" class="pill card" style="font-size:60px;padding:22px 70px"><span class="goldtxt">Kenangan</span></div><br>
+      <div id="v2" class="pill card" style="font-size:60px;padding:22px 70px;margin-top:36px"><span class="goldtxt">Persahabatan</span></div><br>
+      <div id="v3" class="pill card" style="font-size:60px;padding:22px 70px;margin-top:36px"><span class="goldtxt">Ukhuwah</span></div>
+    </div>
+    <div class="abs center" id="s3uj" style="top:1080px">
+      <div style="font-weight:700;font-size:40px;letter-spacing:.06em;color:#f3e6c8">yang kita bina bersama <span class="cinzel goldtxt" style="font-size:52px">UJ</span> <span style="color:#e0566f">♥</span></div>
+    </div>
+  </div>
+
+  <!-- S4 HADIAH -->
+  <div class="scene" id="s4">
+    <div class="abs center" id="s4h" style="top:300px">
+      <div class="label">Majlis Cabutan Bertuah</div>
+      <div class="cinzel goldtxt" style="font-size:120px;line-height:1.05;margin-top:24px">HADIAH<br>MENARIK</div>
+      <div class="play" style="font-style:italic;font-weight:700;font-size:54px;margin-top:30px;color:#fff">menanti anda!</div>
+      <div style="font-weight:700;font-size:36px;margin-top:40px;color:#f3e6c8;line-height:1.4">Pemenang <span style="color:#ffd76e">Grand Prize</span><br>diumumkan pada malam tersebut</div>
+    </div>
+    <!-- fasa A: Myvi + motosikal -->
+    <div class="abs" id="pCar" style="left:90px;top:190px;width:900px">
+      <div class="ribbon center" style="position:relative;display:block;width:560px;margin:0 auto;padding:12px 0;text-align:center;z-index:2">
+        <span class="cinzel" style="font-size:46px;color:#ffd76e">HADIAH UTAMA</span></div>
+      <div class="crop card" style="margin-top:-18px;width:900px;height:482px;background-image:url(assets/poster_b.jpg);
+        background-size:1646px auto;background-position:-707px -659px;border-radius:30px"></div>
+      <div class="center" style="margin-top:22px"><span class="cinzel goldtxt" style="font-size:96px">MYVI 1.5X</span>
+        <div style="font-weight:800;font-size:40px;color:#fff;letter-spacing:.1em">( 1 UNIT )</div></div>
+    </div>
+    <div class="abs card" id="pMotor" style="left:90px;top:985px;width:900px;height:250px;display:flex;align-items:center;gap:26px;padding:0 30px">
+      <div class="crop" style="width:400px;height:200px;background-image:url(assets/poster_b.jpg);background-size:1580px auto;
+        background-position:-385px -1135px;border-radius:18px"></div>
+      <div><div class="label" style="font-size:26px;letter-spacing:.18em">Hadiah Kedua</div>
+        <div class="cinzel goldtxt" style="font-size:62px;line-height:1.1">MOTOSIKAL</div>
+        <div style="font-weight:800;font-size:38px;color:#fff">3 UNIT</div></div>
+    </div>
+    <!-- fasa B: senarai penuh 5 hadiah -->
+    <div class="abs" id="pList" style="left:90px;top:170px;width:900px">
+      <div class="center" style="margin-bottom:26px"><span class="cinzel goldtxt" style="font-size:68px">SENARAI HADIAH</span></div>
+      <div class="prow card" style="height:170px;display:flex;align-items:center;padding:0 34px;gap:28px;margin-bottom:22px">
+        <div class="crop" style="width:230px;height:124px;background-image:url(assets/poster_b.jpg);background-size:420px auto;background-position:-180px -168px;border-radius:14px"></div>
+        <div><div class="label" style="font-size:24px;letter-spacing:.16em">Hadiah Utama</div><div class="cinzel goldtxt" style="font-size:54px">MYVI 1.5X</div><div style="font-weight:800;font-size:32px">1 UNIT</div></div></div>
+      <div class="prow card" style="height:170px;display:flex;align-items:center;padding:0 34px;gap:28px;margin-bottom:22px">
+        <div class="crop" style="width:230px;height:124px;background-image:url(assets/poster_b.jpg);background-size:900px auto;background-position:-236px -646px;border-radius:14px"></div>
+        <div><div class="label" style="font-size:24px;letter-spacing:.16em">Hadiah Kedua</div><div class="cinzel goldtxt" style="font-size:54px">MOTOSIKAL</div><div style="font-weight:800;font-size:32px">3 UNIT</div></div></div>
+      <div class="prow card" style="height:170px;display:flex;align-items:center;padding:0 34px;gap:28px;margin-bottom:22px">
+        <div class="crop" style="width:230px;height:124px;background-image:url(assets/poster_b.jpg);background-size:1270px auto;background-position:-1052px -905px;border-radius:14px"></div>
+        <div><div class="label" style="font-size:24px;letter-spacing:.16em">Hadiah Ketiga</div><div class="cinzel goldtxt" style="font-size:54px">GOLDBAR 5G</div><div style="font-weight:800;font-size:32px">10 ORANG</div></div></div>
+      <div class="prow card" style="height:170px;display:flex;align-items:center;padding:0 34px;gap:28px;margin-bottom:22px">
+        <div style="width:230px;height:124px;border-radius:14px;background:#140c06;display:flex;align-items:center"><div class="crop" style="width:230px;height:70px;background-image:url(assets/poster_b.jpg);background-size:924px auto;background-position:-206px -834px;border-radius:10px"></div></div>
+        <div><div class="label" style="font-size:24px;letter-spacing:.16em">Hadiah Keempat</div><div class="cinzel goldtxt" style="font-size:54px">CINCIN EMAS 916</div><div style="font-weight:800;font-size:32px">15 PCS</div></div></div>
+      <div class="prow card" style="height:170px;display:flex;align-items:center;padding:0 34px;gap:28px">
+        <div class="crop" style="width:230px;height:124px;background-image:url(assets/poster_b.jpg);background-size:1100px auto;background-position:-792px -960px;border-radius:14px"></div>
+        <div><div class="label" style="font-size:24px;letter-spacing:.16em">Hadiah Kelima</div><div class="cinzel goldtxt" style="font-size:54px">GOLDBAR 1G</div><div style="font-weight:800;font-size:32px">30 ORANG</div></div></div>
+    </div>
+  </div>
+
+  <!-- S5 TIKET & PAKAIAN -->
+  <div class="scene" id="s5">
+    <div class="abs" id="ticket" style="left:120px;top:250px;width:840px">
+      <div class="center"><div class="label">Tiket Penyertaan</div></div>
+      <div style="position:relative;margin-top:30px;height:460px;border-radius:36px;background:linear-gradient(160deg,#fff7df,#f3dfae 55%,#e2bf72);
+        box-shadow:0 30px 60px rgba(0,0,0,.5);border:4px solid #fff1c4">
+        <div style="position:absolute;left:-34px;top:196px;width:68px;height:68px;border-radius:50%;background:#1a0c26"></div>
+        <div style="position:absolute;right:-34px;top:196px;width:68px;height:68px;border-radius:50%;background:#1a0c26"></div>
+        <div style="position:absolute;left:60px;right:60px;top:230px;border-top:4px dashed rgba(107,16,36,.35)"></div>
+        <div class="center abs" style="top:30px;font-family:'Playfair Display';font-weight:800;font-size:200px;color:#6b1024;line-height:1">RM20</div>
+        <div class="center abs" style="top:275px;font-weight:800;font-size:52px;color:#6b1024;letter-spacing:.12em">SEORANG</div>
+        <div class="center abs" style="top:355px;font-weight:700;font-size:32px;color:#8a5a1a">🍽 Jamuan makan disediakan</div>
+      </div>
+      <div class="ribbon center" id="kids" style="margin:46px auto 0;width:780px;padding:22px 20px;text-align:center">
+        <div style="font-weight:700;font-size:36px;color:#fff">Kanak-kanak bawah 6 tahun</div>
+        <div class="cinzel goldtxt" style="font-size:78px;line-height:1.1">PERCUMA</div></div>
+    </div>
+    <div class="abs" id="dress" style="left:0;top:180px;width:1080px">
+      <div class="center"><div class="label">Tema Pakaian</div>
+        <div class="cinzel goldtxt" style="font-size:96px;margin-top:14px;line-height:1.05">MELAYU KLASIK</div></div>
+      <div class="crop card" style="margin:34px auto 0;width:640px;height:800px;background-image:url(assets/poster_a.jpg);
+        background-size:1592px auto;background-position:-27px -490px"></div>
+    </div>
+  </div>
+
+  <!-- S6 CTA -->
+  <div class="scene" id="s6">
+    <div class="abs center" id="s6a" style="top:300px">
+      <div class="cinzel goldtxt" style="font-size:150px;line-height:1">JOM!</div>
+      <div class="play" style="font-weight:800;font-size:82px;color:#fff;line-height:1.12;margin-top:24px">Meriahkan<br><span class="goldtxt">bersama-sama</span></div>
+    </div>
+    <div class="abs center" id="s6b" style="top:230px">
+      <div class="play" style="font-weight:800;font-size:76px;line-height:1.12;color:#fff">Dealer dari<br><span class="goldtxt">negeri mana?</span></div>
+      <div class="pill ribbon" style="margin-top:40px;font-size:46px;color:#fff">💬 Komen negeri anda!</div>
+      <div id="chips" style="position:relative;margin:50px auto 0;width:960px;height:250px"></div>
+    </div>
+    <div class="abs card" id="recap" style="left:110px;width:860px;top:1085px;height:150px;display:flex;align-items:center;justify-content:center;text-align:center">
+      <div><div class="cinzel goldtxt" style="font-size:42px">19.12.2026 · 7 PTG – 11.30 MLM</div>
+        <div style="font-weight:700;font-size:30px;margin-top:8px;color:#f3e6c8;letter-spacing:.06em">HQ UMAR JEWELLERIES · BERTAM PERDANA</div></div>
+    </div>
+  </div>
+
+  <!-- CAPTION -->
+  <div id="cap"><div id="capbox"></div></div>
+
+  <!-- S7 ENDING SIS ROSE -->
+  <div id="end">
+    <div style="position:absolute;left:-120px;top:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(184,167,214,.55),rgba(184,167,214,0) 70%)"></div>
+    <div style="position:absolute;right:-140px;top:540px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(156,175,136,.55),rgba(156,175,136,0) 70%)"></div>
+    <div style="position:absolute;inset:40px;border:2px solid rgba(201,166,98,.6);border-radius:30px"></div>
+    <div id="endArch"></div>
+    <div id="rosePhoto"><img id="roseImg" src="assets/sis_rose.jpg" alt=""></div>
+    <div class="abs center" id="endTxt" style="top:1030px">
+      <div style="width:420px;height:3px;margin:0 auto 34px;background:linear-gradient(90deg,transparent,#c9a662,transparent)"></div>
+      <div class="cinzel" style="font-size:128px;line-height:1;background:linear-gradient(180deg,#e9cf8c 0%,#c9a24f 50%,#9c7426 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 2px rgba(120,90,40,.35))">SIS ROSE</div>
+      <div class="cinzel" style="font-weight:600;font-size:44px;letter-spacing:.12em;margin-top:30px;color:#a8802f">ICON LEADER</div>
+      <div class="cinzel" style="font-size:56px;letter-spacing:.06em;margin-top:6px;background:linear-gradient(180deg,#e2c47c,#b08a3a);-webkit-background-clip:text;background-clip:text;color:transparent">UMAR JEWELLERIES</div>
+      <div style="width:420px;height:3px;margin:38px auto 0;background:linear-gradient(90deg,transparent,#c9a662,transparent)"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const clamp = (x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const lin = (t,a,b)=>clamp((t-a)/(b-a));
+const eo = x=>1-Math.pow(1-x,3);                    // ease-out cubic
+const eob = x=>{const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)}; // ease-out back
+const inn = (t,a,d=.5)=>eo(lin(t,a,a+d));
+const out = (t,a,d=.4)=>1-eo(lin(t,a,a+d));
+function show(el,o,ty=0,sc=1,blur=0){el.style.opacity=o;el.style.transform=`translateY(${ty}px) scale(${sc})`;el.style.filter=blur?`blur(${blur}px)`:'';}
+function rise(el,t,a,b,d=.55,dist=60){ // muncul pada a, hilang pada b
+  const i=inn(t,a,d), o=b==null?1:out(t,b,.35); show(el,Math.min(i,o),(1-i)*dist,.96+.04*i);}
+function pop(el,t,a,b){const x=lin(t,a,a+.5), o=b==null?1:out(t,b,.3); show(el,Math.min(eo(x),o),0,.6+.4*eob(x));}
+
+// SCENE WINDOWS (garis masa audio akhir)
+const SC=[['s1',0,11.42],['s2',11.42,15.85],['s3',15.85,22.98],['s4',22.98,35.68],['s5',35.68,43.97],['s6',43.97,50.05]];
+const END=50.05, TOTAL=53.30;
+
+// zarah emas berketentuan
+const parts=[]; let seed=7; const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+for(let i=0;i<46;i++){const d=document.createElement('div');d.className='particle';const s=6+rnd()*18;
+  d.style.width=d.style.height=s+'px';$('particles').appendChild(d);
+  parts.push({el:d,x:rnd()*1080,y:rnd()*1920,v:12+rnd()*30,ph:rnd()*6.28,a:.25+rnd()*.6});}
+
+// cip negeri
+const NEG=['Perlis','Kedah','Pulau Pinang','Perak','Selangor','Kuala Lumpur','N. Sembilan','Melaka','Johor','Pahang','Terengganu','Kelantan','Sabah','Sarawak'];
+const chipEls=NEG.map((n,i)=>{const c=document.createElement('div');c.className='pill card';c.textContent=n;
+  c.style.cssText+=';position:absolute;font-size:34px;padding:12px 30px;color:#ffe9b0;white-space:nowrap';$('chips').appendChild(c);return c;});
+function layoutChips(){let x=0,y=0,row=[];const W=960;const rows=[[]];
+  chipEls.forEach(c=>{const w=c.offsetWidth+16;if(x+w>W){rows.push([]);x=0;}rows[rows.length-1].push([c,w]);x+=w;});
+  rows.forEach((r,ri)=>{const tw=r.reduce((s,[,w])=>s+w,0)-16;let xx=(W-tw)/2;r.forEach(([c,w])=>{c.style.left=xx+'px';c.style.top=(ri*84)+'px';xx+=w;});});}
+
+// caption
+let CAPS=[]; let curCap=-1; let wordEls=[];
+function setCap(i){curCap=i;const box=$('capbox');box.innerHTML='';wordEls=[];
+  if(i<0)return; CAPS[i].words.forEach(w=>{const s=document.createElement('span');s.className='cw'+(w.hl?' hl':'');s.textContent=w.w;box.appendChild(s);wordEls.push(s);});}
+function renderCap(t){
+  let i=CAPS.findIndex(c=>t>=c.s&&t<c.e); if(t>=END) i=-1;
+  if(i!==curCap)setCap(i);
+  const cap=$('cap'); if(i<0){cap.style.opacity=0;return;}
+  const c=CAPS[i]; const boxIn=inn(t,c.s,.18);
+  cap.style.opacity=1; $('capbox').style.transform=`scale(${.94+.06*boxIn})`; $('capbox').style.opacity=boxIn;
+  c.words.forEach((w,k)=>{const el=wordEls[k];const a=lin(t,w.t-.04,w.t+.16);
+    const next=k+1<c.words.length?c.words[k+1].t:c.e; const active=t>=w.t-.04&&t<next;
+    el.style.opacity=.18+.82*eo(a);
+    el.style.transform=`translateY(${(1-eo(a))*18}px) scale(${active?1.0+.03*eob(clamp(a)):1})`;
+    el.classList.toggle('on',active&&!w.hl);});
+}
+
+function render(t){
+  // latar
+  parts.forEach(p=>{const y=((p.y-t*p.v)%1960+1960)%1960-20;const x=p.x+Math.sin(t*.6+p.ph)*24;
+    p.el.style.transform=`translate(${x}px,${y}px)`;p.el.style.opacity=p.a*(.6+.4*Math.sin(t*2+p.ph));});
+  $('rays').style.transform=`rotate(${Math.sin(t*.15)*3}deg) scale(1.2)`;
+  // latar gambar kabur (poster) untuk adegan tertentu
+  const bgi=$('bgimg'); let src='',bo=0;
+  if(t>=11.2&&t<15.9){src='assets/poster_a.jpg';bo=Math.min(inn(t,11.3,.6),out(t,15.6,.4));}
+  else if(t>=22.9&&t<35.8){src='assets/poster_b.jpg';bo=Math.min(inn(t,23.0,.6),out(t,35.4,.4))*.75;}
+  else if(t>=40.3&&t<44.1){src='assets/poster_a.jpg';bo=Math.min(inn(t,40.4,.5),out(t,43.8,.3));}
+  if(src&&bgi.dataset.src!==src){bgi.style.backgroundImage=`url(${src})`;bgi.dataset.src=src;}
+  bgi.style.opacity=bo; bgi.style.transform=`scale(${1.05+.03*Math.sin(t*.2)})`;
+
+  SC.forEach(([id,a,b])=>{const el=$(id);const o=Math.min(inn(t,a-.05,.4),out(t,b-.3,.35));el.style.opacity=o;
+    el.style.display=o>0.001?'block':'none';});
+
+  // S1
+  rise($('logo1'),t,0.0,null,.7,30);
+  rise($('s1a'),t,0.15,2.55);
+  const m=inn(t,2.7,.8); show($('tMalam'),m,0,.85+.15*eob(lin(t,2.7,3.5)),(1-m)*12);
+  rise($('tMega'),t,6.3,null,.5,40); rise($('tRezeki'),t,6.85,null,.5,40);
+  pop($('tRibbon'),t,7.85); rise($('tCabutan'),t,8.5,null,.5,20);
+  rise($('dateCard'),t,9.0,null,.6,80);
+  // sebelum 6.3, "MEGA REZEKI" belum keluar; Malam sahaja dengan kilauan
+  // S2
+  pop($('locCard'),t,11.55);
+  // S3
+  rise($('s3t'),t,15.95);
+  pop($('v1'),t,18.84); pop($('v2'),t,19.6); pop($('v3'),t,20.8); rise($('s3uj'),t,21.9,null,.5,30);
+  // S4
+  rise($('s4h'),t,23.05,28.05);
+  rise($('pCar'),t,28.25,32.45,.6,90);
+  rise($('pMotor'),t,30.35,32.45,.55,90);
+  const pl=$('pList'); show(pl,Math.min(inn(t,32.55,.4),1),(1-inn(t,32.55,.5))*50);
+  document.querySelectorAll('.prow').forEach((r,k)=>{const x=inn(t,32.6+k*.18,.45);r.style.opacity=x;r.style.transform=`translateX(${(1-x)*-80}px)`;});
+  // S5
+  rise($('ticket'),t,35.75,40.4,.55,70); pop($('kids'),t,37.95);
+  rise($('dress'),t,40.5,null,.6,70);
+  // S6
+  rise($('s6a'),t,44.0,45.95,.5,60);
+  rise($('s6b'),t,46.05,null,.5,60);
+  chipEls.forEach((c,k)=>{const x=inn(t,47.7+k*.09,.35);c.style.opacity=x;c.style.transform=`scale(${.6+.4*eob(x)})`;});
+  rise($('recap'),t,44.4,null,.5,60);
+
+  renderCap(t);
+
+  // S7 ending: fade-in lembut, kekal hingga tamat
+  const e=inn(t,END,.8); $('end').style.opacity=e;
+  $('rosePhoto').style.opacity=inn(t,END+.15,.9); $('rosePhoto').style.transform=`translateY(${(1-inn(t,END+.15,1.1))*30}px)`;
+  $('endArch').style.opacity=inn(t,END+.1,.9);
+  rise($('endTxt'),t,END+.55,null,.8,40);
+}
+window.__setup=async(caps)=>{CAPS=caps;await document.fonts.ready;
+  await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));
+  for(const s of ['assets/poster_a.jpg','assets/poster_b.jpg']){const im=new Image();im.src=s;await im.decode();}
+  ['s6','s6b'].forEach(id=>{$(id).style.display='block';});layoutChips();render(0);return true;};
+window.__render=t=>{render(t);};
+window.__TOTAL=TOTAL;
+</script>
+</body>
+</html>
