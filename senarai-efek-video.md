@@ -10,7 +10,7 @@ Senarai untuk rujukan semasa edit video.
 6. Checklist
 7. Headline wall
 8. Zoom through cut
-9. _(kosong)_
+9. Chart
 10. Pullback
 11. Green screen
 12. Paper cut
