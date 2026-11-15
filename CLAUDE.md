@@ -13,6 +13,15 @@ apa-apa content untuk Sis Rose, ikut panduan dalam `panduan-branding-sis-rose.md
 - Gaya: ceria, segar, kemas, moden, premium, tidak sarat hiasan, tulisan jelas.
 - Jangan tukar warna utama atau font tanpa arahan jelas daripada Sis Rose.
 
+## Video (WAJIB)
+
+Setiap kali Sis Rose beri skrip video, ikut `panduan-edit-video.md`:
+- Hook dalam 3 saat pertama, caption ikut percakapan, animasi teks kemas,
+  pergerakan kamera bila sesuai, visual tambahan dan CTA jelas di akhir.
+- Pilih 2–4 teknik sahaja daripada `senarai-efek-video.md`, ikut kesesuaian skrip.
+- Beri cadangan mengikut format dalam panduan: teknik, gaya caption, visual tambahan
+  dan susunan babak (jadual mengikut masa).
+
 ## Rujukan lain
 
 - `senarai-efek-video.md` — senarai efek/transisi video untuk edit.
