@@ -33,7 +33,7 @@ Tiada jeda panjang ketara; potongan kesilapan perlu transkrip dahulu.
 
 ## Isu belum selesai
 1. ~~Canggah masa~~ SELESAI: masa sah = 7 petang - 11.30 malam (disahkan Sis Rose). Poster B (8-12 malam) TIDAK digunakan untuk masa.
-2. Transkrip: Whisper DIBENARKAN (keputusan dikemas kini). Draf siap di 01-transkrip-draf.md — menunggu pengesahan
+2. ~~Transkrip~~ SELESAI — disahkan, lihat 01-transkrip-draf.md
 3. ~~Hadiah/tiket~~ SELESAI
 4. ~~Overlay foto~~ SELESAI (crop). Asal: gambar Sis Rose ada teks overlay ("NAK TAHU LEBIH LANJUT? FOLLOW SIS ROSE / ICON LEADER UMAR JEWELLERIES") — perlu keputusan: crop atas overlay atau kekal
 5. Resolusi gambar Sis Rose 607x1080 (lebih kecil dari 1080x1920) — akan nampak sedikit lembut jika full-screen
@@ -50,4 +50,12 @@ Tiada jeda panjang ketara; potongan kesilapan perlu transkrip dahulu.
 - Info tiket RM20 dimasukkan
 - Tiada background music (disahkan semula)
 - Whisper (faster-whisper large-v3, lokal) dibenarkan untuk transkrip
+- Caption: "UJ" kekal ditulis "UJ" (disahkan Sis Rose; pengecualian kepada peraturan ejaan penuh). Sebutan penuh brand tetap = UMAR JEWELLERIES
+- Ayat 2: potong "mana tau, di lokasinya dekat" -> "...berkumpul di HQ Bertam Pulau Pinang"
+- Fakta "kanak-kanak bawah 6 tahun percuma" disahkan betul
+- Ulangan "Jom kita meriahkan malam ni bersama-sama": kekal take ke-2 (53.70-56.08), buang take pertama
+- "ukuah" -> caption "ukhuwah"
 - Semua arahan edit & caption asal kekal
+
+## Status
+Maklumat minimum LENGKAP. Sedia untuk Explore Idea.

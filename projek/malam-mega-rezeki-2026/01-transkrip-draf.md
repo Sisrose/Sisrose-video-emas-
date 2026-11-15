@@ -1,6 +1,6 @@
 # Transkrip draf — Malam_mega.m4a (Whisper large-v3, CPU, Bahasa Melayu)
 
-Status: DRAF mesin — perlu pengesahan Sis Rose. Timestamp ikut rakaman asal (61.1s).
+Status: DISAHKAN Sis Rose (keputusan di bawah jadual). Timestamp ikut rakaman asal (61.1s).
 
 | # | Masa (s) | Ucapan (seperti ditranskrip) | Cadangan |
 |---|---|---|---|
@@ -14,3 +14,10 @@ Status: DRAF mesin — perlu pengesahan Sis Rose. Timestamp ikut rakaman asal (6
 
 Jeda/senyap utama: 0-1.07, 12.5-13.2, 49.1-50.3, 52.6-53.4, 60.1-61.1.
 Anggaran durasi selepas potong ulangan & jeda: ~53-55s + ending frame 3s.
+
+## Keputusan disahkan
+- "UJ" kekal "UJ" dalam caption
+- Potong ~15.70-17.42s ("mana tau, di lokasinya dekat") -> "berkumpul di HQ Bertam"; titik potong tepat diperhalusi ikut pendengaran semasa build
+- Bawah 6 tahun percuma: fakta betul
+- Ulangan: buang 49.66-52.44, kekal 53.70-56.08
+- Caption "ukhuwah"
