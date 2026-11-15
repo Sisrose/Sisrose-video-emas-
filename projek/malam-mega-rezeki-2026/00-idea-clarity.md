@@ -32,6 +32,17 @@ Tiada jeda panjang ketara; potongan kesilapan perlu transkrip dahulu.
 - Hadiah: Utama Myvi 1.5X (1); Kedua motosikal (3); Ketiga goldbar 5g (10); Keempat cincin emas 916 (15); Kelima goldbar 1g (30)
 
 ## Isu belum selesai
-1. CANGGAH MASA: Poster A 7ptg-11.30 malam vs Poster B 8.00 malam-12.00 tengah malam
+1. ~~Canggah masa~~ SELESAI: masa sah = 7 petang - 11.30 malam (disahkan Sis Rose). Poster B (8-12 malam) TIDAK digunakan untuk masa.
 2. Transkrip audio belum ada (tiada alat speech-to-text dalam environment; perlu izin)
-3. Peranan poster/visual dalam video & CTA akhir (Follow Sis Rose?) belum disahkan
+3. Senarai hadiah penuh vs Myvi sahaja; info tiket RM20 masuk atau tidak — belum disahkan
+4. Gambar Sis Rose sudah ada teks overlay asal ("NAK TAHU LEBIH LANJUT? FOLLOW SIS ROSE / ICON LEADER UMAR JEWELLERIES") — perlu keputusan: crop atas overlay atau kekal
+5. Resolusi gambar Sis Rose 607x1080 (lebih kecil dari 1080x1920) — akan nampak sedikit lembut jika full-screen
+
+## Keputusan dikunci
+- Masa majlis: 7 petang - 11.30 malam
+- Ending frame (3 saat terakhir): foto asal Sis Rose SAHAJA, wajah/cermin mata/kulit/tudung tidak diubah atau dijana semula
+  - Latar premium: sage green, krim, ungu lembut, champagne gold
+  - Fade-in lembut; foto + teks kekal hingga tamat
+  - Teks emas: "SIS ROSE" / "ICON LEADER UMAR JEWELLERIES"; teks tidak menutup wajah
+  - Tiada muzik/SFX; 9:16
+- Semua arahan edit & caption asal kekal
