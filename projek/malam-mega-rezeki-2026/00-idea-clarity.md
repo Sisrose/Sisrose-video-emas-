@@ -33,9 +33,9 @@ Tiada jeda panjang ketara; potongan kesilapan perlu transkrip dahulu.
 
 ## Isu belum selesai
 1. ~~Canggah masa~~ SELESAI: masa sah = 7 petang - 11.30 malam (disahkan Sis Rose). Poster B (8-12 malam) TIDAK digunakan untuk masa.
-2. Transkrip audio belum ada (tiada alat speech-to-text dalam environment; perlu izin)
-3. Senarai hadiah penuh vs Myvi sahaja; info tiket RM20 masuk atau tidak — belum disahkan
-4. Gambar Sis Rose sudah ada teks overlay asal ("NAK TAHU LEBIH LANJUT? FOLLOW SIS ROSE / ICON LEADER UMAR JEWELLERIES") — perlu keputusan: crop atas overlay atau kekal
+2. Transkrip audio: Whisper TIDAK digunakan (keputusan Sis Rose). Perlu skrip/teks sebenar yang diucap daripada Sis Rose untuk caption & potongan kesilapan — BELUM ADA
+3. ~~Hadiah/tiket~~ SELESAI
+4. ~~Overlay foto~~ SELESAI (crop). Asal: gambar Sis Rose ada teks overlay ("NAK TAHU LEBIH LANJUT? FOLLOW SIS ROSE / ICON LEADER UMAR JEWELLERIES") — perlu keputusan: crop atas overlay atau kekal
 5. Resolusi gambar Sis Rose 607x1080 (lebih kecil dari 1080x1920) — akan nampak sedikit lembut jika full-screen
 
 ## Keputusan dikunci
@@ -45,4 +45,9 @@ Tiada jeda panjang ketara; potongan kesilapan perlu transkrip dahulu.
   - Fade-in lembut; foto + teks kekal hingga tamat
   - Teks emas: "SIS ROSE" / "ICON LEADER UMAR JEWELLERIES"; teks tidak menutup wajah
   - Tiada muzik/SFX; 9:16
+- Ending frame: foto Sis Rose di-CROP di atas teks tercetak (kepala hingga dada), wajah tidak terjejas
+- Video papar SEMUA 5 hadiah (Myvi, motosikal x3, goldbar 5g x10, cincin 916 x15, goldbar 1g x30)
+- Info tiket RM20 dimasukkan
+- Tiada background music (disahkan semula)
+- Tiada Whisper / speech-to-text automatik
 - Semua arahan edit & caption asal kekal
