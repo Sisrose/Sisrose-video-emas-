@@ -1,4 +1,4 @@
-# Build v1 — Malam Mega Rezeki UMAR JEWELLERIES 2026
+# Build v1 — FINAL (diluluskan Sis Rose, 15 Nov 2026)
 
 Output: `output/Malam_Mega_Rezeki_UMAR_JEWELLERIES_2026.mp4` (1080x1920, 30fps, H.264 + AAC, ~53.3s)
 
