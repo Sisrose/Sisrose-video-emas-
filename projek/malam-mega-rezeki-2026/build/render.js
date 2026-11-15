@@ -23,7 +23,7 @@ const DIR = __dirname, FPS = 30;
   const total = await page.evaluate(() => window.__TOTAL);
   const N = Math.round(total * FPS);
   const outFile = args[0];
-  const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'png', '-i', '-',
+  const ff = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'image2pipe', '-framerate', String(FPS), '-c:v', 'mjpeg', '-i', '-',
     '-i', path.join(DIR, 'voice_edit.wav'),
     '-filter_complex', `[1:a]apad=whole_dur=${(N / FPS).toFixed(3)}[a]`, '-map', '0:v', '-map', '[a]',
     '-c:v', 'libx264', '-preset', 'slow', '-crf', '17', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-r', String(FPS),
@@ -31,7 +31,7 @@ const DIR = __dirname, FPS = 30;
     { stdio: ['pipe', 'inherit', 'inherit'] });
   for (let i = 0; i < N; i++) {
     await page.evaluate(x => window.__render(x), i / FPS);
-    const buf = await page.screenshot({ type: 'png' });
+    const buf = await page.screenshot({ type: 'jpeg', quality: 96 });
     if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
     if (i % 150 === 0) console.log(`frame ${i}/${N}`);
   }
