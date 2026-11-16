@@ -32,6 +32,7 @@ PLUM = (0x76, 0x2A, 0x63)
 DEEP_PINK = (0xD9, 0x3A, 0x78)
 LIGHT_PURPLE = (0xD8, 0xBF, 0xEA)
 LAVENDER = (0xEE, 0xE3, 0xF6)
+DARK_PURPLE = (0x4B, 0x1E, 0x6E)
 BTN_PINK = (0xF0, 0x5A, 0x96)
 
 # ---- Fonts (OFL, Google Fonts via Fontsource) ----
@@ -225,8 +226,8 @@ def letter_sprites():
         ox, oy = pad - bb[0], pad - bb[1]
         # 3D depth: stacked plum shadow
         for k in range(6, 0, -1):
-            d.text((ox + k * 0.6, oy + k), ch, font=font, fill=PLUM + (90,))
-        d.text((ox, oy), ch, font=font, fill=DEEP_PINK + (255,), stroke_width=4, stroke_fill=GOLD + (255,))
+            d.text((ox + k * 0.6, oy + k), ch, font=font, fill=(0x2E, 0x10, 0x45, 90))
+        d.text((ox, oy), ch, font=font, fill=DARK_PURPLE + (255,), stroke_width=4, stroke_fill=GOLD + (255,))
         # top highlight on the face of the letter
         hl = Image.new("L", img.size, 0)
         ImageDraw.Draw(hl).text((ox, oy), ch, font=font, fill=255)
