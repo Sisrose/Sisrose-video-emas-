@@ -591,6 +591,8 @@ def main():
             c = scene_rose(t)
         # subtitles (spoken words) — placed above TikTok's bottom UI zone
         sub_y = 930  # captions centred on screen (clear of TikTok UI)
+        if t < 6.9:  # Kak Rose's face fills the centre of the Madinah clip -> below chin, not at bottom
+            sub_y = 1300
         draw_subs(c, t, sub_y)
         # smooth fade-out at the end
         if t > DUR - 0.7:
