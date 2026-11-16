@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "kemas" (10.5 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "kemas" (6.3 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -62,9 +62,9 @@
     <div id="kemas-content">
 
       <div class="stack" style="top:262px">
-        <span id="kemas-q" class="chip" style="font-size:48px">Nak emas untuk dipakai<br />&amp; bergaya?</span>
+        <span id="kemas-q" class="chip" style="font-size:48px">Nak bergaya?</span>
         <span id="kemas-a" class="line gold-text" style="font-size:96px;margin-top:20px;white-space:nowrap">Barang Kemas 916</span>
-        <span id="kemas-s" class="line" style="font-size:42px;font-weight:500;margin-top:4px">pelbagai design yang<br /><span class="rose">cantik &amp; menarik</span></span>
+        <span id="kemas-s" class="line" style="font-size:42px;font-weight:500;margin-top:4px">pelbagai design <span class="rose">cantik</span></span>
       </div>
       <div id="kemas-c1" class="card" style="left:300px;top:790px;width:480px;height:480px"><img src="assets/products/gelang-rantai-916.jpg" alt="Gelang rantai emas 916" /></div>
       <div id="kemas-c2" class="card" style="left:300px;top:790px;width:480px;height:480px"><img src="assets/products/gelang-charm-hati-916.jpg" alt="Gelang charm hati emas 916" /></div>
@@ -75,7 +75,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 10.5;
+    const D = 6.3;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#kemas-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#kemas-root .spark").forEach((el, i) => {
@@ -93,11 +93,11 @@
       tl.to("#kemas-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     pop("#kemas-q", 0.05);
-    pop("#kemas-a", 4.3, 0.65);
-    rise("#kemas-s", 6.7);
-    cardIn("#kemas-c1", 1.4);
+    pop("#kemas-a", 2.1, 0.65);
+    rise("#kemas-s", 4.35);
+    cardIn("#kemas-c1", 0.9);
     ["#kemas-c2", "#kemas-c3"].forEach((s, i) => {
-      const t = 5.2 + i * 2.4;
+      const t = 3.0 + i * 1.8;
       tl.fromTo(s, { opacity: 0, x: 220, rotation: 6 }, { opacity: 1, x: 0, rotation: 0, duration: 0.55, ease: "power3.out" }, t);
     });
 

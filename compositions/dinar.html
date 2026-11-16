@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "dinar" (6.8 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "dinar" (4.4 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -62,7 +62,7 @@
     <div id="dinar-content">
 
       <div class="stack" style="top:262px">
-        <span id="dinar-q" class="chip" style="font-size:50px">Nak koleksi emas<br />dalam bentuk syiling?</span>
+        <span id="dinar-q" class="chip" style="font-size:50px">Nak koleksi syiling?</span>
         <span id="dinar-a" class="line gold-text" style="font-size:124px;margin-top:20px">Dinar Emas</span>
       </div>
       <div id="dinar-card" class="card" style="left:240px;top:650px;width:600px;height:600px"><img src="assets/products/dinar-aidilfitri.jpg" alt="1 Dinar Edisi Aidilfitri" /></div>
@@ -72,7 +72,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 6.8;
+    const D = 4.4;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#dinar-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#dinar-root .spark").forEach((el, i) => {
@@ -90,9 +90,9 @@
       tl.to("#dinar-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     pop("#dinar-q", 0.05);
-    pop("#dinar-a", 4.55, 0.65);
-    cardIn("#dinar-card", 1.5);
-    tl.fromTo("#dinar-card", { scale: 1 }, { scale: 1.05, duration: 4, ease: "sine.inOut" }, 2.2);
+    pop("#dinar-a", 2.4, 0.65);
+    cardIn("#dinar-card", 0.9);
+    tl.fromTo("#dinar-card", { scale: 1 }, { scale: 1.05, duration: 2.6, ease: "sine.inOut" }, 1.6);
 
     exit();
     window.__timelines["dinar"] = tl;

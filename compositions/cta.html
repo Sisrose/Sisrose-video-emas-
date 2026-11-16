@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "cta" (19 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "cta" (11.8 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -71,7 +71,6 @@
       <div class="stack" style="top:262px">
         <span id="cta-l1" class="line script" style="font-size:78px">Jom kenali</span>
         <span id="cta-l2" class="line gold-text" style="font-size:96px;white-space:nowrap">Umar Jewelleries!</span>
-        <span id="cta-l3" class="line" style="font-size:42px;font-weight:500;margin-top:18px">Beli emas, bina simpanan &amp;<br />terokai peluang menjana<br />pendapatan bersama kami.</span>
         <span id="cta-c1" class="line" style="font-size:70px;margin-top:44px">Cantik <span class="rose">dipakai</span>,</span>
         <span id="cta-c2" class="line" style="font-size:70px">bijak <span class="rose">disimpan</span>,</span>
         <span id="cta-c3" class="line" style="font-size:54px;margin-top:6px">peluang pendapatan</span>
@@ -84,7 +83,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 19;
+    const D = 11.8;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#cta-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#cta-root .spark").forEach((el, i) => {
@@ -101,15 +100,14 @@
     const exit = () =>
       tl.to("#cta-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
-    rise("#cta-l1", 0.2);
+    rise("#cta-l1", 0.25);
     pop("#cta-l2", 1.0, 0.7);
-    rise("#cta-l3", 3.15);
-    rise("#cta-c1", 9.7);
-    rise("#cta-c2", 11.1);
-    rise("#cta-c3", 12.55);
-    pop("#cta-c4", 13.55);
-    pop("#cta-btn", 15.65, 0.7);
-    tl.fromTo("#cta-btn", { scale: 1 }, { scale: 1.06, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3 }, 16.45);
+    rise("#cta-c1", 3.05);
+    rise("#cta-c2", 4.4);
+    rise("#cta-c3", 5.8);
+    pop("#cta-c4", 6.75);
+    pop("#cta-btn", 8.75, 0.7);
+    tl.fromTo("#cta-btn", { scale: 1 }, { scale: 1.06, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3 }, 9.55);
 
     
     window.__timelines["cta"] = tl;

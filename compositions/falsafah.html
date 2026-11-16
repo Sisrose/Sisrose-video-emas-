@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "falsafah" (10.8 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "falsafah" (6.4 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -71,8 +71,7 @@
         <span id="falsafah-l2" class="line" style="font-size:72px;margin-top:10px">emas bukan sekadar</span>
         <span id="falsafah-l3" class="line gold-text" style="font-size:120px">perhiasan.</span>
         <span id="falsafah-rule" class="rule"></span>
-        <span id="falsafah-l4" class="line" style="font-size:54px;font-weight:600">Emas juga boleh menjadi</span>
-        <span id="falsafah-l5" class="line" style="font-size:54px;font-weight:600">salah satu usaha<br />kita merancang</span>
+        <span id="falsafah-l4" class="line" style="font-size:54px;font-weight:600">tapi usaha merancang</span>
         <span id="falsafah-l6" class="line script" style="font-size:72px;margin-top:10px;white-space:nowrap">kewangan masa depan.</span>
       </div>
 
@@ -81,7 +80,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 10.8;
+    const D = 6.4;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#falsafah-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#falsafah-root .spark").forEach((el, i) => {
@@ -99,13 +98,12 @@
       tl.to("#falsafah-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     pop("#falsafah-q", 0.05);
-    rise("#falsafah-l1", 0.6);
-    rise("#falsafah-l2", 1.8);
-    pop("#falsafah-l3", 2.95, 0.65);
-    tl.fromTo("#falsafah-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 4.3);
-    rise("#falsafah-l4", 4.8);
-    rise("#falsafah-l5", 6.15);
-    pop("#falsafah-l6", 8.2, 0.7);
+    rise("#falsafah-l1", 0.25);
+    rise("#falsafah-l2", 1.35);
+    pop("#falsafah-l3", 2.4, 0.65);
+    tl.fromTo("#falsafah-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 3.3);
+    rise("#falsafah-l4", 3.5);
+    pop("#falsafah-l6", 4.7, 0.7);
 
     exit();
     window.__timelines["falsafah"] = tl;

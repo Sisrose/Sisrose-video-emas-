@@ -8,18 +8,17 @@ _c._SSL_CTX = ssl.create_default_context(cafile="/root/.ccr/ca-bundle.crt")  # s
 
 OUT = sys.argv[1]
 VOICE = "ms-MY-YasminNeural"
-RATE = "+0%"
+RATE = "+5%"
 LINES = {
-    "hook": "Siapa kata nak memiliki emas, kena keluarkan modal yang besar, atau bayar harga yang mahal?",
-    "kilang": "Di Umar Jewelleries, kita bawakan emas dengan harga kilang, dan pelbagai pilihan mengikut keperluan serta kemampuan anda.",
-    "goldbar": "Nak simpan emas? Kita ada Gold Bar, sembilan sembilan sembilan perpuluhan sembilan.",
-    "kemas": "Nak emas untuk dipakai dan bergaya? Kita ada barang kemas sembilan satu enam, dengan pelbagai design yang cantik dan menarik.",
-    "dinar": "Nak koleksi emas dalam bentuk syiling? Kita juga ada dinar emas.",
-    "soalan": "Tapi, tahu tak apa yang paling menarik tentang Umar Jewelleries?",
-    "peluang": "Kita bukan sekadar menawarkan pilihan emas pada harga kilang, malah kita juga membuka peluang kepada masyarakat untuk membina simpanan emas, dan meneroka peluang menjana pendapatan.",
-    "ekosistem": "Maksudnya, anda bukan sekadar datang membeli emas untuk kegunaan sendiri, tetapi anda juga berpeluang mengenali ilmu emas, membina simpanan, dan menjana pendapatan, melalui ekosistem dealer Umar Jewelleries.",
-    "falsafah": "Sebab bagi saya, emas bukan sekadar perhiasan. Emas juga boleh menjadi salah satu usaha kita merancang kewangan masa depan.",
-    "cta": "Jom kenali Umar Jewelleries! Beli emas, bina simpanan, dan terokai peluang menjana pendapatan bersama kami. Cantik dipakai, bijak disimpan, peluang pendapatan jangan dilepaskan! Jom daftar dealer sekarang!",
+    "hook": "Siapa kata nak memiliki emas, kena keluarkan modal besar, atau bayar harga mahal?",
+    "kilang": "Di Umar Jewelleries, emas pada harga kilang, ikut keperluan dan kemampuan anda.",
+    "goldbar": "Nak simpan emas? Gold Bar, sembilan sembilan sembilan perpuluhan sembilan.",
+    "kemas": "Nak bergaya? Barang kemas sembilan satu enam, pelbagai design cantik.",
+    "dinar": "Nak koleksi syiling? Dinar emas pun ada.",
+    "soalan": "Tapi tahu tak, apa yang paling menarik tentang Umar Jewelleries?",
+    "ekosistem": "Anda bukan sekadar beli emas. Anda juga berpeluang kenali ilmu emas, bina simpanan, dan jana pendapatan, melalui ekosistem dealer Umar Jewelleries.",
+    "falsafah": "Bagi saya, emas bukan sekadar perhiasan, tapi usaha merancang kewangan masa depan.",
+    "cta": "Jom kenali Umar Jewelleries! Cantik dipakai, bijak disimpan, peluang pendapatan jangan dilepaskan! Jom daftar dealer sekarang!",
 }
 
 

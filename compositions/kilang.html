@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "kilang" (9.3 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "kilang" (6.2 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -62,9 +62,9 @@
 
       <div class="stack" style="top:262px">
         <span id="kilang-l1" class="line script" style="font-size:80px">Di Umar Jewelleries,</span>
-        <span id="kilang-l2" class="line" style="font-size:56px;font-weight:600;margin-top:14px">kita bawakan emas dengan</span>
+        <span id="kilang-l2" class="line" style="font-size:56px;font-weight:600;margin-top:14px">emas pada</span>
         <span id="kilang-l3" class="line gold-text" style="font-size:132px;margin-top:6px">harga kilang</span>
-        <span id="kilang-l4" class="line" style="font-size:44px;font-weight:500;margin-top:20px">&amp; pelbagai pilihan mengikut<br />keperluan serta kemampuan anda</span>
+        <span id="kilang-l4" class="line" style="font-size:44px;font-weight:500;margin-top:20px">ikut keperluan &amp;<br />kemampuan anda</span>
       </div>
       <div id="kilang-c1" class="card" style="left:120px;top:900px;width:340px;height:340px"><img src="assets/products/gold-bar-20g.jpg" alt="Gold Bar 20 gram" /></div>
       <div id="kilang-c3" class="card" style="left:620px;top:900px;width:340px;height:340px"><img src="assets/products/gelang-rantai-916.jpg" alt="Gelang emas 916" /></div>
@@ -75,7 +75,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 9.3;
+    const D = 6.2;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#kilang-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#kilang-root .spark").forEach((el, i) => {
@@ -93,12 +93,12 @@
       tl.to("#kilang-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     rise("#kilang-l1", 0.1);
-    rise("#kilang-l2", 1.85);
-    pop("#kilang-l3", 3.2, 0.7);
-    rise("#kilang-l4", 4.5);
-    cardIn("#kilang-c1", 4.9, -9);
-    cardIn("#kilang-c3", 5.2, 9);
-    cardIn("#kilang-c2", 5.5, 0);
+    rise("#kilang-l2", 1.8);
+    pop("#kilang-l3", 2.35, 0.7);
+    rise("#kilang-l4", 3.55);
+    cardIn("#kilang-c1", 3.9, -9);
+    cardIn("#kilang-c3", 4.2, 9);
+    cardIn("#kilang-c2", 4.5, 0);
 
     exit();
     window.__timelines["kilang"] = tl;

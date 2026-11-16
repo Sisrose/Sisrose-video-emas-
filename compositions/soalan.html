@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "soalan" (5.6 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "soalan" (4.5 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -74,7 +74,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 5.6;
+    const D = 4.5;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#soalan-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#soalan-root .spark").forEach((el, i) => {
@@ -92,9 +92,9 @@
       tl.to("#soalan-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     rise("#soalan-l1", 0.1);
-    rise("#soalan-l2", 1.55);
-    rise("#soalan-l3", 2.25);
-    pop("#soalan-l4", 3.3, 0.7);
+    rise("#soalan-l2", 1.5);
+    rise("#soalan-l3", 1.95);
+    pop("#soalan-l4", 2.95, 0.7);
 
     exit();
     window.__timelines["soalan"] = tl;
