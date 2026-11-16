@@ -103,7 +103,7 @@ def make_portrait():
     return out
 
 def make_ring():
-    """Champagne-gold ring with angular sheen + ornaments (rotated per frame)."""
+    """Plain shining champagne-gold ring with angular sheen (rotated per frame). No ornaments."""
     ss = 2
     R_out, R_in = PORTRAIT_R + 34, PORTRAIT_R + 6
     size = (R_out + 30) * 2 * ss
@@ -112,7 +112,7 @@ def make_ring():
     dx, dy = xx - c, yy - c
     r = np.sqrt(dx * dx + dy * dy) / ss
     ang = np.arctan2(dy, dx)
-    sheen = 0.72 + 0.28 * np.cos(2 * ang) + 0.12 * np.cos(5 * ang + 1)
+    sheen = 0.90 + 0.22 * np.cos(2 * ang) + 0.10 * np.cos(5 * ang + 1)
     # bevel: brighter at centre line of band
     mid = (R_out + R_in) / 2
     bevel = 1 - 0.35 * ((r - mid) / ((R_out - R_in) / 2)) ** 2
@@ -127,23 +127,25 @@ def make_ring():
     rgb = rgb * (1 - 0.25 * stripe[..., None])
     a = band * 255
     img = Image.fromarray(np.dstack([np.clip(rgb, 0, 255), a]).astype(np.uint8), "RGBA")
-    d = ImageDraw.Draw(img)
-    # ornaments: 8 pearls + 4 diamonds on outer edge
-    for k in range(12):
-        th = k * math.pi * 2 / 12
-        rr = (R_out + 8) * ss
-        px, py = c + rr * math.cos(th), c + rr * math.sin(th)
-        if k % 3 == 0:
-            s = 13 * ss
-            pts = [(px + s * math.cos(th), py + s * math.sin(th)),
-                   (px + s * 0.55 * math.cos(th + math.pi / 2), py + s * 0.55 * math.sin(th + math.pi / 2)),
-                   (px - s * math.cos(th), py - s * math.sin(th)),
-                   (px + s * 0.55 * math.cos(th - math.pi / 2), py + s * 0.55 * math.sin(th - math.pi / 2))]
-            d.polygon(pts, fill=(255, 238, 200, 255), outline=GOLD + (255,))
-        else:
-            s = 6 * ss
-            d.ellipse((px - s, py - s, px + s, py + s), fill=PEARL + (255,), outline=GOLD + (255,), width=ss)
     return img.resize((img.width // ss, img.height // ss), Image.LANCZOS)
+
+def make_glint():
+    """Soft white-gold highlight arc that sweeps around the ring to make it shine."""
+    R_out, R_in = PORTRAIT_R + 34, PORTRAIT_R + 6
+    size = (R_out + 30) * 2
+    c = size / 2
+    yy, xx = np.mgrid[0:size, 0:size].astype(np.float32)
+    dx, dy = xx - c, yy - c
+    r = np.sqrt(dx * dx + dy * dy)
+    ang = np.arctan2(dy, dx)
+    mid, half = (R_out + R_in) / 2, (R_out - R_in) / 2
+    radial = np.clip(1 - ((r - mid) / half) ** 2, 0, 1)
+    arc = np.exp(-(ang / 0.35) ** 2) + 0.7 * np.exp(-((np.abs(ang) - math.pi) / 0.25) ** 2)
+    a = np.clip(radial ** 0.6 * arc * 1.2, 0, 1) * 255
+    rgb = np.empty((size, size, 3), np.float32); rgb[:] = (255, 247, 222)
+    img = Image.fromarray(np.dstack([rgb, a]).astype(np.uint8), "RGBA")
+    return img.filter(ImageFilter.GaussianBlur(1.5))
+
 
 def make_glow(radius, color, blur):
     size = int((radius + blur * 3) * 2)
@@ -335,6 +337,8 @@ def build_frames(tmpdir):
     portrait = make_portrait()
     ring = make_ring()
     glow = make_glow(PORTRAIT_R + 40, LIGHT_PURPLE, 40)
+    gold_glow = make_glow(PORTRAIT_R + 26, GOLD, 22)
+    glint = make_glint()
     letters = letter_sprites()
     btn_normal = make_button(0.0)
     btn_pressed = make_button(1.0)
@@ -372,11 +376,14 @@ def build_frames(tmpdir):
         cx, cy = PORTRAIT_C
         g_pulse = 0.85 + 0.15 * math.sin(t * 2 * math.pi * 0.6)
         paste_center(frame, with_alpha(scaled(glow, sc), alpha * g_pulse), cx, cy)
+        paste_center(frame, with_alpha(scaled(gold_glow, sc), alpha * (0.55 + 0.25 * math.sin(t * 2 * math.pi * 0.8))), cx, cy)
         paste_center(frame, with_alpha(scaled(portrait, sc), alpha), cx, cy)   # portrait never rotates
         ring_rot = ring.rotate(-t * 40, resample=Image.BICUBIC)               # only the ring rotates
         paste_center(frame, with_alpha(scaled(ring_rot, sc), alpha), cx, cy)
+        glint_rot = glint.rotate(-t * 150 - 60, resample=Image.BICUBIC)       # shine sweeping round the gold
+        paste_center(frame, with_alpha(scaled(glint_rot, sc), alpha), cx, cy)
 
-        for th, rr, t0, s in ps:
+        for th, rr, t0, s in ps[:0]:   # orbiting edge sparkles removed: plain gold ring only
             lt = prog(t, t0, t0 + 0.7)
             if 0 < lt < 1:
                 a = math.sin(math.pi * lt)
