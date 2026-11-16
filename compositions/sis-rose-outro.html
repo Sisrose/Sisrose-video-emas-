@@ -1,0 +1,252 @@
+<!--
+  SIS ROSE OUTRO — permanent, reusable 3 s outro for every Sis Rose TikTok video.
+  1080 × 1920 (9:16). Mount it as the LAST scene of any video:
+
+    <div id="sis-rose-outro" data-composition-id="sis-rose-outro"
+         data-composition-src="compositions/sis-rose-outro.html"
+         data-start="<end of main content>" data-duration="3"
+         data-track-index="1" data-track-kind="graphics"
+         data-width="1080" data-height="1920"></div>
+
+  The portrait is the untouched original photo (assets/brand/sis-rose-original.jpg),
+  only positioned and cropped by CSS — never regenerated or retouched.
+-->
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      --ivory: #fff8f1;
+      --rose: #f4cfd9;
+      --rose-deep: #eab8c8;
+      --lavender: #ddd0f0;
+      --gold-1: #f6e7c6;
+      --gold-2: #d8bb85;
+      --gold-3: #b8955b;
+      --ink: #5a2e44;
+      --button: #b45f7f;
+    }
+
+    /* Background: rose pink → warm ivory with lavender accents */
+    #sro-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(60% 38% at 12% 8%, rgba(221, 208, 240, 0.75) 0%, rgba(221, 208, 240, 0) 70%),
+        radial-gradient(55% 34% at 92% 88%, rgba(221, 208, 240, 0.65) 0%, rgba(221, 208, 240, 0) 70%),
+        radial-gradient(70% 45% at 50% 40%, rgba(255, 248, 241, 0.95) 0%, rgba(255, 248, 241, 0) 75%),
+        linear-gradient(168deg, #fff8f1 0%, #f9e2e6 38%, #f4cfd9 72%, #eebfd0 100%);
+    }
+
+    /* Champagne-gold shimmer that sweeps once across the background */
+    #sro-sheen-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    #sro-sheen {
+      position: absolute;
+      top: -20%;
+      left: 0;
+      width: 90%;
+      height: 140%;
+      background: linear-gradient(
+        100deg,
+        rgba(246, 231, 198, 0) 20%,
+        rgba(246, 231, 198, 0.22) 40%,
+        rgba(255, 250, 238, 0.4) 50%,
+        rgba(246, 231, 198, 0.22) 60%,
+        rgba(246, 231, 198, 0) 80%
+      );
+    }
+
+    /* Centred brand stack, inside TikTok's safe band (168–1330 px) */
+    #sro-stack {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Portrait: 216 px ≈ 20% of 1080 */
+    #sro-portrait {
+      position: relative;
+      width: 216px;
+      height: 216px;
+    }
+    #sro-glow {
+      position: absolute;
+      inset: -34px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(246, 231, 198, 0.9) 45%, rgba(246, 231, 198, 0) 70%);
+    }
+    #sro-ring,
+    #sro-ring-shine {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      -webkit-mask: radial-gradient(circle, transparent 107px, #000 108px);
+      mask: radial-gradient(circle, transparent 107px, #000 108px);
+    }
+    #sro-ring {
+      background: conic-gradient(
+        from 200deg,
+        var(--gold-2),
+        var(--gold-1),
+        var(--gold-3),
+        var(--gold-1),
+        var(--gold-2),
+        var(--gold-3),
+        var(--gold-2)
+      );
+    }
+    #sro-ring-shine {
+      background: conic-gradient(
+        from 0deg,
+        rgba(255, 255, 255, 0) 0deg,
+        rgba(255, 252, 240, 0) 300deg,
+        rgba(255, 252, 240, 1) 340deg,
+        rgba(255, 255, 255, 0) 360deg
+      );
+    }
+    #sro-photo {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f3e6dc;
+    }
+    /* Crop only: a 470 px square of the 960×1280 original, centred on the face
+       (centre 380,440), scaled to 216 px. No pixels are altered. */
+    #sro-photo-img {
+      position: absolute;
+      width: 441.2px;
+      height: 588.3px;
+      left: -66.6px;
+      top: -94.2px;
+      max-width: none;
+    }
+
+    /* Name */
+    #sro-name-mask {
+      margin-top: 46px;
+      overflow: hidden;
+      padding: 6px 24px 14px;
+    }
+    #sro-name {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      font-size: 76px;
+      line-height: 1.05;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    /* Follow button */
+    #sro-follow {
+      position: relative;
+      margin-top: 30px;
+      padding: 18px 48px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #c06c8b 0%, var(--button) 100%);
+      box-shadow:
+        0 0 0 2px var(--gold-2),
+        0 10px 26px rgba(150, 70, 100, 0.28);
+      overflow: hidden;
+    }
+    #sro-follow-label {
+      position: relative;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      font-size: 32px;
+      letter-spacing: 0.04em;
+      color: #fff8f1;
+      white-space: nowrap;
+    }
+    #sro-follow-sheen {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 40%;
+      background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 248, 230, 0.55) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+  </style>
+
+  <div id="root" data-composition-id="sis-rose-outro" data-width="1080" data-height="1920">
+    <div id="sro-bg"></div>
+    <div id="sro-sheen-wrap" data-layout-ignore><div id="sro-sheen"></div></div>
+
+    <div id="sro-stack">
+      <div id="sro-portrait" data-layout-allow-overlap>
+        <div id="sro-glow"></div>
+        <div id="sro-ring"></div>
+        <div id="sro-photo">
+          <img id="sro-photo-img" data-layout-allow-overflow src="assets/brand/sis-rose-original.jpg" alt="Sis Rose" />
+        </div>
+        <div id="sro-ring-shine"></div>
+      </div>
+
+      <div id="sro-name-mask">
+        <div id="sro-name">Sis Rose</div>
+      </div>
+
+      <div id="sro-follow" data-layout-allow-overlap>
+        <div id="sro-follow-sheen" data-layout-allow-overflow></div>
+        <div id="sro-follow-label">Follow Sis Rose</div>
+      </div>
+    </div>
+
+    <!-- Signature sound: Soft Whoosh → Gold Coin Cling → Crystal Ting.
+         Each starts so its measured peak lands one frame after its picture. -->
+    <audio id="sro-sfx-whoosh" class="clip" data-hf-media-start-basis="local" src="assets/sfx/outro-whoosh.mp3"
+      data-start="0.26" data-duration="0.575" data-track-index="2" data-volume="0.5"></audio>
+    <audio id="sro-sfx-cling" class="clip" data-hf-media-start-basis="local" src="assets/sfx/outro-gold-cling.mp3"
+      data-start="0.95" data-duration="1.8" data-track-index="2" data-volume="0.45"></audio>
+    <audio id="sro-sfx-ting" class="clip" data-hf-media-start-basis="local" src="assets/sfx/outro-crystal-ting.mp3"
+      data-start="1.71" data-duration="1.28" data-track-index="3" data-volume="0.6"></audio>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // 1. Soft pink background fades in
+    tl.fromTo("#sro-bg", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "sine.out" }, 0);
+    tl.fromTo("#sro-sheen", { xPercent: -110, opacity: 0 }, { xPercent: 130, opacity: 1, duration: 1.5, ease: "sine.inOut" }, 0.15);
+
+    // 2. Circular photo zooms smoothly into the centre (whoosh)
+    tl.fromTo("#sro-portrait", { scale: 0.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }, 0.3);
+
+    // 3. Thin gold ring shimmers (coin cling at 0.95)
+    tl.set("#sro-ring-shine", { rotation: -40, opacity: 0 }, 0);
+    tl.to("#sro-ring-shine", { rotation: 320, duration: 0.85, ease: "power2.inOut" }, 0.95);
+    tl.to("#sro-ring-shine", { opacity: 1, duration: 0.12, ease: "none" }, 0.95);
+    tl.to("#sro-ring-shine", { opacity: 0, duration: 0.25, ease: "sine.in" }, 1.55);
+    tl.fromTo("#sro-glow", { opacity: 0, scale: 0.9 }, { opacity: 0.85, scale: 1, duration: 0.3, ease: "sine.out" }, 0.95);
+    tl.to("#sro-glow", { opacity: 0.35, duration: 0.6, ease: "sine.inOut" }, 1.3);
+
+    // 4. "Sis Rose" elegant text reveal
+    tl.fromTo(
+      "#sro-name",
+      { yPercent: 105, scale: 1.06, opacity: 0, filter: "blur(6px)" },
+      { yPercent: 0, scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.7, ease: "power3.out" },
+      1.2,
+    );
+
+    // 5. "Follow Sis Rose" soft pop (crystal ting peaks at 2.03)
+    tl.fromTo("#sro-follow", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.2)" }, 2.0);
+    tl.fromTo("#sro-follow-sheen", { xPercent: -120 }, { xPercent: 280, duration: 0.5, ease: "sine.inOut" }, 2.4);
+
+    window.__timelines["sis-rose-outro"] = tl;
+  </script>
+</template>

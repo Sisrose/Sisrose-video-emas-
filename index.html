@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #fff8f1;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      Sis Rose TikTok project (1080 × 1920, 9:16).
+      Each video: put its scenes first, then the SIS ROSE OUTRO as the last 3 s.
+      Right now this holds only the outro, so it renders the outro on its own.
+    -->
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="3"
+      data-width="1080"
+      data-height="1920"
+    >
+      <!-- SIS ROSE OUTRO — always last. data-start = end of the video's main content. -->
+      <div
+        id="sis-rose-outro"
+        data-composition-id="sis-rose-outro"
+        data-composition-src="compositions/sis-rose-outro.html"
+        data-start="0"
+        data-duration="3"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>
