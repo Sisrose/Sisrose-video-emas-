@@ -665,22 +665,26 @@ def scene_cta(t, gt):
 
 
 def follow_assets():
-    name_f = font('Playfair.ttf', 150, 800)
+    name_f = font('Playfair.ttf', 160, 900)
     txt = 'SIS ROSE'
     bb = name_f.getbbox(txt)
     w, h = bb[2] - bb[0] + 80, bb[3] - bb[1] + 80
     m = Image.new('L', (w, h), 0)
     ImageDraw.Draw(m).text((40 - bb[0], 40 - bb[1]), txt, font=name_f, fill=255)
-    outline = m.filter(ImageFilter.MaxFilter(7))
+    outline = m.filter(ImageFilter.MaxFilter(9))
     name = Image.new('RGBA', (w, h), (0, 0, 0, 0))
-    sh = Image.new('RGBA', (w, h), (80, 40, 90, 0))
-    sh.putalpha(outline.filter(ImageFilter.GaussianBlur(8)).point(lambda v: int(v * 0.35)))
+    glow = Image.new('RGBA', (w, h), (255, 120, 190, 0))
+    glow.putalpha(outline.filter(ImageFilter.GaussianBlur(22)).point(lambda v: int(v * 0.9)))
+    name = Image.alpha_composite(name, glow)
+    sh = Image.new('RGBA', (w, h), (50, 10, 60, 0))
+    sh.putalpha(outline.filter(ImageFilter.GaussianBlur(6)).point(lambda v: int(v * 0.55)))
     name.alpha_composite(sh, (0, 6))
     g = gradient_v(w, h, (246, 220, 150), (176, 128, 52)).convert('RGBA')
     g.putalpha(outline)
     name = Image.alpha_composite(name, g)
-    f = gradient_v(w, h, (98, 52, 130), (62, 28, 88)).convert('RGBA')
+    f = gradient_v(w, h, (255, 255, 255), (255, 214, 232)).convert('RGBA')
     f.putalpha(m)
+    A['name_mask'] = m
     name = Image.alpha_composite(name, f)
 
     bw, bh = 660, 124
@@ -737,36 +741,119 @@ def follow_assets():
     return name, btn, handf
 
 
+def follow_extra():
+    """Aset tambahan penutup: latar warna-warni, sinar cahaya, hati."""
+    R = 1700
+    yy, xx = np.mgrid[0:R, 0:R]
+    ang = np.arctan2(yy - R / 2, xx - R / 2)
+    dist = np.hypot(yy - R / 2, xx - R / 2) / (R / 2)
+    rays = (0.5 + 0.5 * np.cos(ang * 14)) ** 6 * np.clip(1 - dist, 0, 1) ** 1.3
+    arr = np.zeros((R, R, 4), np.uint8)
+    arr[..., :3] = (255, 236, 200)
+    arr[..., 3] = (rays * 120).astype(np.uint8)
+    rays_im = Image.fromarray(arr, 'RGBA').filter(ImageFilter.GaussianBlur(4))
+
+    def grad(c1, c2, c3):
+        t = np.linspace(0, 1, H)[:, None]
+        top = np.array(c1) * (1 - np.clip(t * 2, 0, 1)) + np.array(c2) * np.clip(t * 2, 0, 1)
+        bot = np.array(c2) * (1 - np.clip(t * 2 - 1, 0, 1)) + np.array(c3) * np.clip(t * 2 - 1, 0, 1)
+        g = np.where(t < 0.5, top, bot)[:, None, :].repeat(W, 1)
+        return Image.fromarray(g.astype(np.uint8), 'RGB').convert('RGBA')
+    g1 = grad((255, 150, 196), (196, 96, 200), (84, 36, 128))
+    g2 = grad((255, 186, 150), (226, 104, 176), (104, 40, 140))
+
+    hs = 90
+    hm = Image.new('L', (hs * 4, hs * 4), 0)
+    d = ImageDraw.Draw(hm)
+    S = hs * 4
+    d.ellipse((S * 0.08, S * 0.12, S * 0.52, S * 0.56), fill=255)
+    d.ellipse((S * 0.48, S * 0.12, S * 0.92, S * 0.56), fill=255)
+    d.polygon([(S * 0.12, S * 0.44), (S * 0.88, S * 0.44), (S * 0.5, S * 0.9)], fill=255)
+    hm = hm.resize((hs, hs), Image.LANCZOS)
+    hearts = []
+    for col in [(255, 92, 150), (255, 160, 200), (255, 214, 120)]:
+        hcol = gradient_v(hs, hs, tuple(min(255, c + 50) for c in col), col).convert('RGBA')
+        hcol.putalpha(hm)
+        big = Image.new('RGBA', (hs + 40, hs + 40), (0, 0, 0, 0))
+        gl = Image.new('RGBA', (hs + 40, hs + 40), col + (0,))
+        gm = Image.new('L', (hs + 40, hs + 40), 0)
+        gm.paste(hm, (20, 20))
+        gl.putalpha(gm.filter(ImageFilter.GaussianBlur(10)).point(lambda v: int(v * 0.7)))
+        big = Image.alpha_composite(big, gl)
+        big.alpha_composite(hcol, (20, 20))
+        hearts.append(big)
+    halo = soft_dot(470, (255, 190, 225), hard=0)
+    rng = np.random.default_rng(9)
+    hp = [(rng.uniform(60, W - 60), rng.uniform(0, 1), rng.uniform(0.35, 0.8), int(rng.integers(0, 3)),
+           rng.uniform(0, 6.28), rng.uniform(0.3, 0.7)) for _ in range(16)]
+    return dict(rays=rays_im, g1=g1, g2=g2, hearts=hearts, halo=halo, hp=hp)
+
+
 def scene_follow(t, gt):
-    """Penutup: gambar asal Sis Rose (kad follow) dengan zoom perlahan & riak tekan."""
-    card = block_cache('card', lambda: Image.open(os.path.join(ROOT, 'assets', 'photo', 'follow_card.png')).convert('RGBA'))
-    z = 1.0 + 0.035 * ease_io(max(0.0, t) / 4.5)
-    cw, ch = W / z, H / z
-    ox, oy = (W - cw) / 2, (H - ch) * 0.42
-    fr = card.resize((W, H), Image.BICUBIC, box=(ox, oy, ox + cw, oy + ch))
-    def pos(x, y):
-        return (x - ox) * z, (y - oy) * z
-    for i, (sx, sy) in enumerate([(230, 330), (870, 380), (160, 820), (930, 900), (560, 230), (820, 1130)]):
-        tw = 0.5 + 0.5 * math.sin(gt * 3 + i * 1.3)
-        X, Y = pos(sx, sy)
-        comp_c(fr, A['spark'][1 + i % 2], X, Y, ease_out((t - 0.3) / 0.6) * tw)
+    """Penutup berwarna: latar pink-ungu beranimasi, sinar cahaya, halo, orbit,
+    hati terapung, nama berkilau & butang FOLLOW yang ditekan."""
+    name, btn, hand = block_cache('follow', follow_assets)
+    X = block_cache('follow_x', follow_extra)
+    tt = max(0.0, t)
+    fr = Image.blend(X['g1'], X['g2'], 0.5 + 0.5 * math.sin(gt * 1.3))
+    pcx, pcy = 540, 720
+    # sinar cahaya berputar di belakang potret
+    ra = ease_out(tt / 1.0)
+    rays = X['rays'].rotate(gt * 14 % 360, Image.BILINEAR)
+    comp_c(fr, rays, pcx, pcy, ra * 0.9)
+    # halo bernadi
+    comp_c(fr, X['halo'], pcx, pcy, 0.55 * ra, 1.0 + 0.05 * math.sin(gt * 4))
+    particles(fr, gt, 1.0)
+    # hati terapung ke atas
+    for x0, ph0, sp, hi, ph, sc in X['hp']:
+        y = H + 80 - ((ph0 + tt * sp * 0.45) % 1.0) * (H + 200)
+        comp_c(fr, X['hearts'][hi], x0 + 30 * math.sin(gt * 1.5 + ph), y, 0.75 * ra, sc)
+    p = ease_back(tt / 0.9)
+    D = 600 * (0.65 + 0.35 * p)
+    orbit(fr, gt * 1.2, pcx, pcy, 420, False, ra)
+    draw_portrait(fr, pcx, pcy, D, zoom=1.0 + 0.03 * tt / 4.5, fy=0.5, alpha=ease_out(tt / 0.4), follow=True)
+    orbit(fr, gt * 1.2, pcx, pcy, 420, True, ra)
+    # nama dengan kilauan menyapu
+    pn = ease_out((tt - 0.4) / 0.7)
+    if pn > 0:
+        nm = name.copy()
+        q = (tt - 1.1) / 0.9
+        if 0 < q < 1:
+            w, h = nm.size
+            band = Image.new('L', (w, h), 0)
+            sx = -200 + (w + 400) * ease_io(q)
+            ImageDraw.Draw(band).polygon([(sx, 0), (sx + 70, 0), (sx - 30, h), (sx - 100, h)], fill=255)
+            band = ImageChops.multiply(band.filter(ImageFilter.GaussianBlur(10)), A['name_mask'])
+            sh = Image.new('RGBA', (w, h), (255, 236, 170, 0))
+            sh.putalpha(band)
+            nm = Image.alpha_composite(nm, sh)
+        comp_c(fr, nm, 540, 1170 + (1 - pn) * 50, pn, 0.9 + 0.1 * pn)
+    # butang
+    pb = ease_back((tt - 0.85) / 0.7)
     tap = 2.05
-    bx, by = pos(540, 1226)
-    # kilauan menyapu butang
-    q = (t - 1.2) / 0.8
+    press = 1.0 - 0.07 * math.sin(math.pi * clamp((t - tap) / 0.25))
+    pulse = 1.0 + 0.03 * math.sin(gt * 6) * (t > tap + 0.3)
+    bx, by = 540, 1360
+    if pb > 0:
+        if t > tap:  # glow selepas ditekan
+            comp_c(fr, X['halo'], bx, by, 0.5 * clamp((t - tap) / 0.3), 0.75)
+        comp_c(fr, btn, bx, by, clamp(pb), (0.6 + 0.4 * pb) * press * pulse)
+    ph = ease_io((t - 1.3) / 0.75)
+    if t > 1.3:
+        hx, hy = lerp(840, 660, ph), lerp(1660, 1400, ph)
+        hs = 1.0 - 0.12 * math.sin(math.pi * clamp((t - tap) / 0.25))
+        comp_c(fr, hand, hx + 40, hy + 50, ease_out((t - 1.3) / 0.3), hs)
+    q = (t - tap) / 1.0
     if 0 < q < 1:
-        comp_c(fr, A['spark'][3], lerp(bx - 280, bx + 280, ease_io(q)), by - 10, math.sin(math.pi * q))
-    q = (t - tap) / 0.9
-    hx, hy = pos(690, 1236)
-    if 0 < q < 1:
-        rip = Image.new('RGBA', (440, 440), (0, 0, 0, 0))
-        r = 30 + 170 * ease_out(q)
-        ImageDraw.Draw(rip).ellipse((220 - r, 220 - r, 220 + r, 220 + r), outline=(255, 255, 255, int(230 * (1 - q))), width=6)
-        comp_c(fr, rip, hx, hy)
-        for k in range(8):
-            a = k / 8 * 2 * math.pi
-            rr = 60 + 230 * ease_out(q)
-            comp_c(fr, A['spark'][1], hx + rr * math.cos(a), hy + rr * 0.6 * math.sin(a), 1 - q, 1.2 - 0.6 * q)
+        rip = Image.new('RGBA', (460, 460), (0, 0, 0, 0))
+        r = 30 + 180 * ease_out(q)
+        ImageDraw.Draw(rip).ellipse((230 - r, 230 - r, 230 + r, 230 + r), outline=(255, 255, 255, int(230 * (1 - q))), width=7)
+        comp_c(fr, rip, 660, by)
+        for k in range(12):
+            a = k / 12 * 2 * math.pi
+            rr = 60 + 300 * ease_out(q)
+            img = X['hearts'][k % 3] if k % 2 else A['spark'][2]
+            comp_c(fr, img, 660 + rr * math.cos(a), by + rr * 0.7 * math.sin(a) - 80 * q, 1 - q, 0.55 - 0.2 * q)
     return fr
 
 
