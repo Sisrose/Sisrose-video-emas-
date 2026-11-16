@@ -240,15 +240,23 @@ def end_cta():
 END_CTA = end_cta()
 
 
-# Watermark / trademark "Sis Rose" – kecil, sepanjang video
-def watermark():
-    t = text_img("Sis Rose", PLAY9, 40, "gold", stroke=2, stroke_fill=PURPLE_D, shadow=True)
-    a = t.getchannel("A").point(lambda v: int(v * 0.85)); t.putalpha(a); return t
-WATERMARK = watermark()
+# Watermark / trademark "Sis Rose" – teks putih atas pil kaca (frosted glass), sepanjang video
+WM_TEXT = text_img("Sis Rose", PLAY9, 42, WHITE, shadow=False)
+WM_W, WM_H = WM_TEXT.width + 24, 62
+def _wm_mask():
+    m = Image.new("L", (WM_W, WM_H)); ImageDraw.Draw(m).rounded_rectangle((0, 0, WM_W - 1, WM_H - 1), WM_H // 2, fill=255); return m
+WM_MASK = _wm_mask()
+WM_TINT = Image.new("RGBA", (WM_W, WM_H), (25, 10, 40, 95))
+WM_EDGE = (lambda: (lambda e: (ImageDraw.Draw(e).rounded_rectangle((0, 0, WM_W - 1, WM_H - 1), WM_H // 2, outline=(255, 255, 255, 120), width=2), e)[1])(Image.new("RGBA", (WM_W, WM_H))))()
 def put_watermark(frame, end_card=False):
     # bawah kanan; pada end card ke atas kanan supaya tak bertindih dengan CTA
-    y = 22 if end_card else H - WATERMARK.height - 6
-    frame.alpha_composite(WATERMARK, (W - WATERMARK.width - 22, y))
+    x = W - WM_W - 24
+    y = 24 if end_card else H - WM_H - 18
+    glass = frame.crop((x, y, x + WM_W, y + WM_H)).filter(ImageFilter.GaussianBlur(14))
+    glass.alpha_composite(WM_TINT)
+    glass.alpha_composite(WM_EDGE)
+    glass.alpha_composite(WM_TEXT, ((WM_W - WM_TEXT.width) // 2, (WM_H - WM_TEXT.height) // 2 - 2))
+    frame.paste(glass, (x, y), WM_MASK)
 
 # ---------- sari kata ----------
 def build_words():
@@ -371,7 +379,7 @@ def compose(fr, to):
         for i, (t0, row) in enumerate(PRIZES):
             s, a = pop(ts, t0, 0.4)
             paste_anim(frame, row, W / 2, 1300 + i * 166, s, a)
-        show_brand = False; sub_y = 1820
+        show_brand = False; sub_y = 1785
     elif 36.3 <= ts < 41.75:  # ===== FRAME BREAK: daftar dealer =====
         k = ease_out((ts - 36.3) / 0.4)
         sc = 1 - 0.12 * k
