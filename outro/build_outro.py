@@ -30,6 +30,8 @@ PURPLE = (0xC8, 0xA2, 0xD8)
 GOLD = (0xD8, 0xB5, 0x6A)
 PLUM = (0x76, 0x2A, 0x63)
 DEEP_PINK = (0xD9, 0x3A, 0x78)
+LIGHT_PURPLE = (0xD8, 0xBF, 0xEA)
+LAVENDER = (0xEE, 0xE3, 0xF6)
 BTN_PINK = (0xF0, 0x5A, 0x96)
 
 # ---- Fonts (OFL, Google Fonts via Fontsource) ----
@@ -170,11 +172,11 @@ def star(size, color=(255, 236, 190)):
 
 
 def background(t):
-    """Pink-to-pearl gradient with soft purple silk ribbons (computed at 1/4 res)."""
+    """Light-purple-to-pearl gradient with soft purple silk ribbons (computed at 1/4 res)."""
     w, h = W // 4, H // 4
     y = np.linspace(0, 1, h, dtype=np.float32)[:, None]
     x = np.linspace(0, 1, w, dtype=np.float32)[None, :]
-    top, mid, bot = np.array(LUX_PINK, np.float32), np.array(BLUSH, np.float32), np.array(PEARL, np.float32)
+    top, mid, bot = np.array(LIGHT_PURPLE, np.float32), np.array(LAVENDER, np.float32), np.array(PEARL, np.float32)
     k = np.clip(y * 1.6, 0, 1)
     k2 = np.clip((y - 0.45) * 2.2, 0, 1)
     base = top * (1 - k)[..., None] + mid * k[..., None]
@@ -331,7 +333,7 @@ def make_tagline():
 def build_frames(tmpdir):
     portrait = make_portrait()
     ring = make_ring()
-    glow = make_glow(PORTRAIT_R + 40, LUX_PINK, 40)
+    glow = make_glow(PORTRAIT_R + 40, LIGHT_PURPLE, 40)
     letters = letter_sprites()
     btn_normal = make_button(0.0)
     btn_pressed = make_button(1.0)
