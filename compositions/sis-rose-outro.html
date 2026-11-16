@@ -1,10 +1,10 @@
 <!--
-  SIS ROSE OUTRO — permanent, reusable 3 s outro for every Sis Rose TikTok video.
+  SIS ROSE OUTRO — permanent, reusable 5 s outro for every Sis Rose TikTok video.
   1080 × 1920 (9:16). Mount it as the LAST scene of any video:
 
     <div id="sis-rose-outro" data-composition-id="sis-rose-outro"
          data-composition-src="compositions/sis-rose-outro.html"
-         data-start="<end of main content>" data-duration="3"
+         data-start="<end of main content>" data-duration="5"
          data-track-index="1" data-track-kind="graphics"
          data-width="1080" data-height="1920"></div>
 
@@ -415,6 +415,16 @@
     // 6. Signature tagline
     tl.fromTo("#sro-tagline", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 2.05);
     tl.fromTo("#sro-hati", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 2.2);
+
+    // 7. Hold (2.7–5 s): gentle life while every line stays readable
+    ["#sro-spark-1", "#sro-spark-2", "#sro-spark-3", "#sro-spark-4", "#sro-spark-5", "#sro-spark-6"].forEach((sel, i) => {
+      tl.to(sel, { scale: 0.65, opacity: 0.5, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 1 }, 2.9 + i * 0.15);
+    });
+    tl.to("#sro-hand-inner", { scale: 0.86, duration: 0.12, ease: "sine.inOut", yoyo: true, repeat: 1 }, 3.3);
+    tl.fromTo("#sro-follow-sheen", { xPercent: -120 }, { xPercent: 280, immediateRender: false, duration: 0.6, ease: "sine.inOut" }, 3.65);
+    tl.to("#sro-ring-shine", { rotation: 680, duration: 1.0, ease: "power2.inOut" }, 3.9);
+    tl.to("#sro-ring-shine", { opacity: 0.7, duration: 0.15, ease: "none" }, 3.9);
+    tl.to("#sro-ring-shine", { opacity: 0, duration: 0.3, ease: "sine.in" }, 4.6);
 
     window.__timelines["sis-rose-outro"] = tl;
   </script>

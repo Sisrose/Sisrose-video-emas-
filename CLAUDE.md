@@ -2,9 +2,9 @@
 
 Every TikTok video in this project ends with the **SIS ROSE OUTRO**:
 
-- Component: `compositions/sis-rose-outro.html` (3 s, 1080 × 1920). Mount it as the LAST scene in
+- Component: `compositions/sis-rose-outro.html` (5 s, 1080 × 1920). Mount it as the LAST scene in
   `index.html`, with `data-start` = the end of the video's main content, and raise the root's
-  `data-duration` by 3 s. Never change the video's existing content to add it.
+  `data-duration` by 5 s. Never change the video's existing content to add it.
 - Still version: `renders/sis-rose-outro-poster.png` (the outro's final frame).
 - Photo: `assets/brand/sis-rose-original.jpg` is Sis Rose's original photograph. Use it exactly as is:
   never regenerate, beautify, retouch, reshape or replace her face, glasses, hijab or outfit. Only the
@@ -17,7 +17,7 @@ Every TikTok video in this project ends with the **SIS ROSE OUTRO**:
 - Exact wording and capitalisation as above, never ALL CAPS; "Ikon", not "Icon".
 - Look: rose pink / warm ivory gradient, lavender accents, champagne-gold shimmer and delicate sparkles.
 - Animation: background fades in → portrait zooms into the centre → gold ring shimmers → "Sis Rose"
-  reveal → title → "Follow Sis Rose" soft pop with arrow and hand → tagline.
+  reveal → title → "Follow Sis Rose" soft pop with arrow and hand → tagline → gentle hold to 5 s.
 - Sound: soft whoosh (`assets/sfx/outro-whoosh.mp3`) → gold cling (`outro-gold-cling.mp3`) →
   crystal ting (`outro-crystal-ting.mp3`), already synced inside the component.
 - No other text, names or logos beyond the lines above.
