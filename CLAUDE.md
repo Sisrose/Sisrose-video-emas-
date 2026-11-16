@@ -5,17 +5,22 @@ Every TikTok video in this project ends with the **SIS ROSE OUTRO**:
 - Component: `compositions/sis-rose-outro.html` (3 s, 1080 × 1920). Mount it as the LAST scene in
   `index.html`, with `data-start` = the end of the video's main content, and raise the root's
   `data-duration` by 3 s. Never change the video's existing content to add it.
+- Still version: `renders/sis-rose-outro-poster.png` (the outro's final frame).
 - Photo: `assets/brand/sis-rose-original.jpg` is Sis Rose's original photograph. Use it exactly as is:
   never regenerate, beautify, retouch, reshape or replace her face, glasses, hijab or outfit. Only the
   CSS crop/position in the outro may change.
-- Design (do not alter): small 216 px circular portrait with a thin champagne-gold ring; rose pink /
-  warm ivory gradient with lavender accents and a champagne-gold shimmer; "Sis Rose" in Playfair
-  Display Bold; a small "Follow Sis Rose" pill button.
+- Layout, top to bottom (do not alter): 288 px circular portrait with a thin champagne-gold ring →
+  "Sis Rose" (Playfair Display Bold, deep rose with a champagne-gold edge) → "Ikon Leader Umar
+  Jewelleries" (Poppins SemiBold, deep plum) → glossy deep-rose "Follow Sis Rose" button (Poppins Bold,
+  white, TikTok icon on the left, curved arrow and pointing hand) → "Real Talk. Real Story." (Poppins
+  SemiBold, deep plum) → "Dari Hati ♡" (Playfair Display Italic, deep rose).
+- Exact wording and capitalisation as above, never ALL CAPS; "Ikon", not "Icon".
+- Look: rose pink / warm ivory gradient, lavender accents, champagne-gold shimmer and delicate sparkles.
 - Animation: background fades in → portrait zooms into the centre → gold ring shimmers → "Sis Rose"
-  text reveal → "Follow Sis Rose" soft pop.
+  reveal → title → "Follow Sis Rose" soft pop with arrow and hand → tagline.
 - Sound: soft whoosh (`assets/sfx/outro-whoosh.mp3`) → gold cling (`outro-gold-cling.mp3`) →
   crystal ting (`outro-crystal-ting.mp3`), already synced inside the component.
-- The only branding name visible to viewers is **"Sis Rose"**. No other names, slogans or logos.
+- No other text, names or logos beyond the lines above.
 - All videos are vertical 9:16, 1080 × 1920. No background music unless requested.
 
 # HyperFrames Composition Project
