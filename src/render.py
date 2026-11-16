@@ -325,13 +325,13 @@ def word_sprite(word, size, style):
     if key in A['texts']:
         return A['texts'][key]
     if style == 'hl':
-        f = font('PlayfairItalic.ttf', int(size), 700)
+        f = font('Montserrat.ttf', int(size), 800)
     elif style == 'paper':
-        f = font('PlayfairItalic.ttf', int(size), 800)
+        f = font('Montserrat.ttf', int(size), 800)
     elif style == 'sans':
         f = font('Montserrat.ttf', int(size), 500)
     else:
-        f = font('Playfair.ttf', int(size), 500)
+        f = font('Montserrat.ttf', int(size), 600)
     bb = f.getbbox(word, anchor='ls')
     pad = 40
     w, h = bb[2] - bb[0] + pad * 2, bb[3] - bb[1] + pad * 2
@@ -368,6 +368,7 @@ class Block:
         self.items = []
         self.strips = []
         self.t_out = t_out
+        lines = [(tx, sz * 1.1, t0, st) for tx, sz, t0, st in lines]
         heights = [s * line_gap for _, s, _, _ in lines]
         y = cy - sum(heights) / 2
         for (text, size, t0, style), lh in zip(lines, heights):
@@ -516,30 +517,28 @@ def block_cache(key, fn):
     return A[key]
 
 
-def scene1(t, gt):  # Hook — orbit masuk
+def scene1(t, gt):  # Hook — orbit cahaya mengelilingi teks
     fr = background(gt)
     particles(fr, gt)
-    p = ease_out(t / 1.6)
-    cx, cy, D = 540, 740, 600 * (0.82 + 0.18 * p)
-    orbit(fr, gt, cx, cy, 430, False, ease_io(t / 1.2))
-    draw_portrait(fr, cx, cy, D, zoom=1.0 + 0.06 * t / 6, fy=0.48, alpha=ease_io(t / 0.9), ytheta=(1 - p) * 1.25)
-    orbit(fr, gt, cx, cy, 430, True, ease_io(t / 1.2))
+    cx, cy = 540, 930
+    a = ease_io(t / 1.2)
+    orbit(fr, gt, cx, cy, 470, False, a)
     b = block_cache('b1', lambda: Block([
-        ('Sampai bila kita', 70, 1.3, 'normal'),
-        ('nak hidup ikut apa', 70, 1.75, 'normal'),
-        ('orang fikir tentang kita?', 70, 2.25, 'normal')], 1300, 5.9))
+        ('Sampai bila kita', 64, 0.8, 'normal'),
+        ('nak hidup ikut apa', 64, 1.25, 'normal'),
+        ('orang fikir', 64, 1.7, 'normal'),
+        ('tentang kita?', 64, 2.1, 'normal')], cy, 5.9))
     b.draw(fr, t)
+    orbit(fr, gt, cx, cy, 470, True, a)
     return fr
 
 
 def scene2(t, gt):  # Paper cut
     fr = background(gt)
     particles(fr, gt)
-    p = ease_out((t + 0.3) / 1.4)
-    draw_portrait(fr, 540, 660 + 40 * (1 - p), 560, zoom=1.05 + 0.10 * clamp(t / 5), fy=0.45)
     b = block_cache('b2', lambda: Block([
-        ('Kalau kita buat,', 74, 0.5, 'normal'),
-        ('*ORANG* *BERCAKAP.*', 92, 1.5, 'paper')], 1210, 4.9, 1.6))
+        ('Kalau kita buat,', 66, 0.4, 'normal'),
+        ('*ORANG* *BERCAKAP.*', 74, 1.5, 'paper')], 930, 4.9, 1.7))
     b.draw(fr, t)
     return fr
 
@@ -547,10 +546,11 @@ def scene2(t, gt):  # Paper cut
 def scene3(t, gt):  # zoom
     fr = background(gt)
     particles(fr, gt)
-    draw_portrait(fr, 540, 680, 580, zoom=1.18, fx=0.44 + 0.10 * ease_io(t / 5.5), fy=0.46)
     b = block_cache('b3', lambda: Block([
-        ('Kalau kita tak buat pun,', 70, 0.5, 'normal'),
-        ('orang tetap ada cerita.', 70, 1.2, 'normal')], 1250, 5.4))
+        ('Kalau kita', 64, 0.4, 'normal'),
+        ('tak buat pun,', 64, 0.8, 'normal'),
+        ('orang tetap', 64, 1.4, 'normal'),
+        ('ada cerita.', 64, 1.8, 'normal')], 930, 5.4))
     b.draw(fr, t)
     return fr
 
@@ -593,17 +593,16 @@ def glass_panel(fr, x0, y0, x1, y1, alpha, t_sweep):
 def scene4(t, gt):  # Glass
     fr = background(gt)
     particles(fr, gt)
-    draw_portrait(fr, 540, 620, 560, zoom=1.04 + 0.05 * t / 6.5, fy=0.48)
     p = ease_out((t - 0.2) / 0.9)
     out = clamp((6.3 - t) / 0.45)
     if p > 0:
         dy = (1 - p) * 60
-        glass_panel(fr, 70, 1000 + dy, 1010, 1520 + dy, p * out, (t - 0.4) / 1.4)
+        glass_panel(fr, 70, 640 + dy, 1010, 1240 + dy, p * out, (t - 0.4) / 1.4)
     b = block_cache('b4', lambda: Block([
-        ('Jadi sampai bila kita nak', 62, 0.8, 'normal'),
-        ('habiskan tenaga', 62, 1.4, 'normal'),
-        ('memikirkan', 62, 1.9, 'normal'),
-        ('pandangan orang?', 62, 2.4, 'normal')], 1260, 6.3))
+        ('Jadi sampai bila', 58, 0.8, 'normal'),
+        ('kita nak habiskan', 58, 1.3, 'normal'),
+        ('tenaga memikirkan', 58, 1.8, 'normal'),
+        ('pandangan orang?', 58, 2.3, 'normal')], 940, 6.3))
     b.draw(fr, t)
     return fr
 
@@ -611,31 +610,28 @@ def scene4(t, gt):  # Glass
 def scene5(t, gt):  # Teruskan — orbit
     fr = background(gt)
     particles(fr, gt, 1.0 + 0.4 * clamp((t - 4) / 1))
-    cx, cy = 540, 620
-    orbit(fr, gt * 1.1, cx, cy, 400, False)
-    draw_portrait(fr, cx, cy, 520, zoom=1.0 + 0.05 * t / 7, fy=0.47)
-    orbit(fr, gt * 1.1, cx, cy, 400, True)
+    cx, cy = 540, 930
+    orbit(fr, gt * 1.1, cx, cy, 480, False)
     b = block_cache('b5', lambda: Block([
-        ('Selagi apa yang kita buat', 62, 0.5, 'normal'),
-        ('itu baik dan tidak', 62, 1.2, 'normal'),
-        ('menyusahkan sesiapa,', 62, 1.9, 'normal'),
-        ('*TERUSKAN.*', 112, 4.2, 'normal')], 1240, 6.85, 1.45))
+        ('Selagi apa yang', 58, 0.5, 'normal'),
+        ('kita buat itu baik', 58, 1.0, 'normal'),
+        ('dan tidak menyusahkan', 58, 1.5, 'normal'),
+        ('sesiapa,', 58, 2.0, 'normal'),
+        ('*TERUSKAN.*', 96, 4.2, 'normal')], cy, 6.85, 1.45))
     b.draw(fr, t)
+    orbit(fr, gt * 1.1, cx, cy, 480, True)
     return fr
 
 
-def scene6(t, gt):  # Ending — wajah & senyuman
+def scene6(t, gt):  # Ending
     fr = background(gt)
     particles(fr, gt)
-    q = ease_io((t - 4.6) / 1.8)
-    cx, cy = 540, lerp(600, 930, q)
-    D = lerp(500, 880, q)
-    draw_portrait(fr, cx, cy, D, zoom=lerp(1.0, 1.32, q) + 0.03 * t / 6.5, fx=lerp(0.5, 0.55, q), fy=lerp(0.48, 0.47, q))
     b = block_cache('b6', lambda: Block([
-        ('Kita yang menjalani', 64, 0.4, 'normal'),
-        ('kehidupan ini, bukan orang', 64, 1.0, 'normal'),
-        ('yang sibuk mengulas', 64, 1.6, 'normal'),
-        ('*KEHIDUPAN* *KITA.*', 88, 3.6, 'normal')], 1240, 5.0, 1.4))
+        ('Kita yang menjalani', 58, 0.4, 'normal'),
+        ('kehidupan ini,', 58, 0.9, 'normal'),
+        ('bukan orang yang', 58, 1.5, 'normal'),
+        ('sibuk mengulas', 58, 2.0, 'normal'),
+        ('*KEHIDUPAN* *KITA.*', 74, 3.6, 'normal')], 930, 6.2, 1.45))
     b.draw(fr, t)
     return fr
 
@@ -655,16 +651,15 @@ def comment_icon(size):
 def scene_cta(t, gt):
     fr = background(gt)
     particles(fr, gt)
-    draw_portrait(fr, 540, 560, 420, zoom=1.08, fy=0.47, alpha=1.0)
     p = ease_out(t / 0.9)
-    glass_panel(fr, 80, 900 + (1 - p) * 60, 1000, 1480 + (1 - p) * 60, p, (t - 0.3) / 1.4)
+    glass_panel(fr, 80, 640 + (1 - p) * 60, 1000, 1260 + (1 - p) * 60, p, (t - 0.3) / 1.4)
     ic = block_cache('icon', lambda: comment_icon(120))
-    comp_c(fr, ic, 540, 1000 + (1 - p) * 60, ease_out((t - 0.3) / 0.6), 0.8 + 0.2 * ease_back((t - 0.3) / 0.6))
+    comp_c(fr, ic, 540, 760 + (1 - p) * 60, ease_out((t - 0.3) / 0.6), 0.8 + 0.2 * ease_back((t - 0.3) / 0.6))
     b = block_cache('b7', lambda: Block([
-        ('Pernah alami', 66, 0.4, 'normal'),
-        ('perkara macam ni?', 66, 0.8, 'normal'),
-        ('Kongsikan pengalaman awak', 46, 1.5, 'sans'),
-        ('di ruangan komen.', 46, 1.8, 'sans')], 1250, 99))
+        ('Pernah alami', 60, 0.4, 'normal'),
+        ('perkara macam ni?', 60, 0.8, 'normal'),
+        ('Kongsikan pengalaman awak', 42, 1.5, 'sans'),
+        ('di ruangan komen.', 42, 1.8, 'sans')], 1010, 99))
     b.draw(fr, t)
     return fr
 
