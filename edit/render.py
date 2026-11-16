@@ -239,6 +239,12 @@ def end_cta():
     r.alpha_composite(s, ((r.width - s.width) // 2, 13)); return r
 END_CTA = end_cta()
 
+def sis_tag():
+    t = text_img("Sis Rose", PLAY9, 120, "gold", shadow=False)
+    r = rounded(t.width + 90, t.height + 6, 60, PURPLE_D + (235,), border=6)
+    r.alpha_composite(t, ((r.width - t.width) // 2, 3)); return r
+SIS_TAG = sis_tag()
+
 # ---------- sari kata ----------
 def build_words():
     tr = json.load(open(os.path.join(HERE, "transcript.json")))
@@ -340,6 +346,8 @@ def compose(fr, to):
         frame = img.resize((W, H), Image.BILINEAR, box=((W - W / zz) / 2, (img.height - H / zz) * 0.9, (W + W / zz) / 2, (img.height - H / zz) * 0.9 + H / zz)).convert("RGBA")
         s, a = pop(ts, END_CARD_SRC + 0.35, 0.45)
         paste_anim(frame, END_CTA, W / 2, 1800, s, a)
+        s, a = pop(ts, 43.98, 0.45)   # muncul tepat bila Kak Ros sebut "Sis Rose"
+        paste_anim(frame, SIS_TAG, W / 2, 1150, s, a)
         return frame
 
     cam = camera(fr, z, ay).convert("RGBA")
