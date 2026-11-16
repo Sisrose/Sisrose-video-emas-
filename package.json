@@ -1,0 +1,23 @@
+{
+  "name": "sisrose-video-emas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Templat video emas Umar Jewelleries dengan efek zoom through, orbit, glass, green screen, paper cut, checklist dan headline wall",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render VideoEmas out/video-emas.mp4",
+    "still": "remotion still VideoEmas out/preview.png",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.544",
+    "@remotion/transitions": "^4.0.544",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "remotion": "^4.0.544"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}
