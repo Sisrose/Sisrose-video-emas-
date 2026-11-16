@@ -443,15 +443,15 @@ def scene_gold(t):
     c = MAROON.copy()
     # card floats in
     p = ease_out_cubic(lt / 0.7)
-    cy = 560 + 60 * (1 - p) + 8 * math.sin(lt * 1.6)
+    cy = 520 + 60 * (1 - p) + 8 * math.sin(lt * 1.6)
     img = card_sh
     if 0.0 < lt < 1.1:
         img = sweep_shine(card_sh, lt / 1.1)
-    place(c, img, W / 2, cy, 0.92 + 0.08 * p, p)
+    place(c, img, W / 2, cy, 0.8 * (0.92 + 0.08 * p), p)
     s, a, dy = pop_anim(t, 7.0, 10.45, 0.5, 0.3, "rise")
     place(c, T["simpan"], W / 2, 200, 1, a, dy)
     # bars
-    base_y = 1235
+    base_y = 1330
     n = sum(1 for bt in BAR_T if t >= bt)
     for i, bt in enumerate(BAR_T):
         if t < bt - 0.12:
@@ -463,8 +463,8 @@ def scene_gold(t):
     if t >= BAR_T[0] - 0.05:
         k = max(1, n)
         bump = 1 + 0.12 * math.exp(-max(0, t - BAR_T[k - 1]) * 9)
-        place(c, T["counter"][k], W / 2, 1425, bump, 1)
-        place(c, T["bulan"][k], W / 2, 1345, 1, 0.9)
+        place(c, T["counter"][k], W / 2, 1515, bump, 1)
+        place(c, T["bulan"][k], W / 2, 1435, 1, 0.9)
     # chips (soft, no sound)
     s, a, dy = pop_anim(t, 10.72, 13.6, 0.4, 0.3, "rise")
     place(c, T["chip_mampu"], W / 2, 150, 1, a, dy)
@@ -590,9 +590,7 @@ def main():
         else:
             c = scene_rose(t)
         # subtitles (spoken words) — placed above TikTok's bottom UI zone
-        sub_y = 1180 if t >= 27.4 else 1440
-        if 7.15 <= t < 13.5:
-            sub_y = 1575  # gold scene: below the bar stack
+        sub_y = 930  # captions centred on screen (clear of TikTok UI)
         draw_subs(c, t, sub_y)
         # smooth fade-out at the end
         if t > DUR - 0.7:
