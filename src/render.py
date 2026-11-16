@@ -743,39 +743,35 @@ def follow_assets():
 
 
 def scene_follow(t, gt):
-    fr = background(gt, follow=True)
-    particles(fr, gt, 0.7)
-    name, btn, hand = block_cache('follow', follow_assets)
-    p = ease_back(t / 0.9)
-    draw_portrait(fr, 540, 740, 600 * (0.7 + 0.3 * p), zoom=1.0, fy=0.5, alpha=ease_out(t / 0.5), follow=True)
-    for i, (sx, sy) in enumerate([(240, 420), (860, 470), (180, 900), (900, 1010), (560, 330), (760, 1180)]):
+    """Penutup: gambar asal Sis Rose (kad follow) dengan zoom perlahan & riak tekan."""
+    card = block_cache('card', lambda: Image.open(os.path.join(ROOT, 'assets', 'photo', 'follow_card.png')).convert('RGBA'))
+    z = 1.0 + 0.035 * ease_io(max(0.0, t) / 4.5)
+    cw, ch = W / z, H / z
+    ox, oy = (W - cw) / 2, (H - ch) * 0.42
+    fr = card.resize((W, H), Image.BICUBIC, box=(ox, oy, ox + cw, oy + ch))
+    def pos(x, y):
+        return (x - ox) * z, (y - oy) * z
+    for i, (sx, sy) in enumerate([(230, 330), (870, 380), (160, 820), (930, 900), (560, 230), (820, 1130)]):
         tw = 0.5 + 0.5 * math.sin(gt * 3 + i * 1.3)
-        comp_c(fr, A['spark'][1 + i % 2], sx, sy, ease_out((t - 0.3) / 0.6) * tw)
-    pn = ease_out((t - 0.45) / 0.7)
-    comp_c(fr, name, 540, 1215 + (1 - pn) * 40, pn)
-    pb = ease_back((t - 0.85) / 0.7)
+        X, Y = pos(sx, sy)
+        comp_c(fr, A['spark'][1 + i % 2], X, Y, ease_out((t - 0.3) / 0.6) * tw)
     tap = 2.05
-    press = 1.0 - 0.06 * math.sin(math.pi * clamp((t - tap) / 0.25))
-    pulse = 1.0 + 0.025 * math.sin(gt * 5) * (t > tap + 0.3)
-    if pb > 0:
-        comp_c(fr, btn, 540, 1400, clamp(pb), (0.6 + 0.4 * pb) * press * pulse)
-    # kursor tangan bergerak & tekan
-    ph = ease_io((t - 1.3) / 0.75)
-    if t > 1.3:
-        hx, hy = lerp(820, 640, ph), lerp(1700, 1440, ph)
-        hs = 1.0 - 0.12 * math.sin(math.pi * clamp((t - tap) / 0.25))
-        comp_c(fr, hand, hx + 40, hy + 50, ease_out((t - 1.3) / 0.3), hs)
-    # riak sentuhan + kilauan
-    q = (t - tap) / 0.9
+    bx, by = pos(540, 1226)
+    # kilauan menyapu butang
+    q = (t - 1.2) / 0.8
     if 0 < q < 1:
-        rip = Image.new('RGBA', (400, 400), (0, 0, 0, 0))
-        r = 30 + 160 * ease_out(q)
-        ImageDraw.Draw(rip).ellipse((200 - r, 200 - r, 200 + r, 200 + r), outline=(255, 255, 255, int(220 * (1 - q))), width=6)
-        comp_c(fr, rip, 600, 1400)
+        comp_c(fr, A['spark'][3], lerp(bx - 280, bx + 280, ease_io(q)), by - 10, math.sin(math.pi * q))
+    q = (t - tap) / 0.9
+    hx, hy = pos(690, 1236)
+    if 0 < q < 1:
+        rip = Image.new('RGBA', (440, 440), (0, 0, 0, 0))
+        r = 30 + 170 * ease_out(q)
+        ImageDraw.Draw(rip).ellipse((220 - r, 220 - r, 220 + r, 220 + r), outline=(255, 255, 255, int(230 * (1 - q))), width=6)
+        comp_c(fr, rip, hx, hy)
         for k in range(8):
             a = k / 8 * 2 * math.pi
-            rr = 60 + 220 * ease_out(q)
-            comp_c(fr, A['spark'][1], 600 + rr * math.cos(a), 1400 + rr * 0.6 * math.sin(a), 1 - q, 1.2 - 0.6 * q)
+            rr = 60 + 230 * ease_out(q)
+            comp_c(fr, A['spark'][1], hx + rr * math.cos(a), hy + rr * 0.6 * math.sin(a), 1 - q, 1.2 - 0.6 * q)
     return fr
 
 
