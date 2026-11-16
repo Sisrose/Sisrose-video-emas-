@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ms">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1080, height=1920" />
@@ -21,30 +21,157 @@
   </head>
   <body>
     <!--
-      Sis Rose TikTok project (1080 × 1920, 9:16).
-      Each video: put its scenes first, then the SIS ROSE OUTRO as the last 5 s.
-      Right now this holds only the outro, so it renders the outro on its own.
+      Umar Jewelleries — "Emas harga kilang" TikTok (1080 × 1920, 9:16).
+      Main content 0–63.5 s (10 scenes), then the SIS ROSE OUTRO as the last 5 s.
+      No background music; soft SFX on scene changes and reveals.
     -->
     <div
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="5"
+      data-duration="68.5"
       data-width="1080"
       data-height="1920"
     >
-      <!-- SIS ROSE OUTRO — always last. data-start = end of the video's main content. -->
       <div
-        id="sis-rose-outro"
-        data-composition-id="sis-rose-outro"
-        data-composition-src="compositions/sis-rose-outro.html"
+        id="hook"
+        data-composition-id="hook"
+        data-composition-src="compositions/hook.html"
         data-start="0"
+        data-duration="5.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="kilang"
+        data-composition-id="kilang"
+        data-composition-src="compositions/kilang.html"
+        data-start="5.5"
+        data-duration="5.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="goldbar"
+        data-composition-id="goldbar"
+        data-composition-src="compositions/goldbar.html"
+        data-start="11"
+        data-duration="6.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="kemas"
+        data-composition-id="kemas"
+        data-composition-src="compositions/kemas.html"
+        data-start="17.5"
+        data-duration="6.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="dinar"
+        data-composition-id="dinar"
+        data-composition-src="compositions/dinar.html"
+        data-start="24"
         data-duration="5"
         data-track-index="1"
         data-track-kind="graphics"
         data-width="1080"
         data-height="1920"
       ></div>
+      <div
+        id="soalan"
+        data-composition-id="soalan"
+        data-composition-src="compositions/soalan.html"
+        data-start="29"
+        data-duration="3.5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="peluang"
+        data-composition-id="peluang"
+        data-composition-src="compositions/peluang.html"
+        data-start="32.5"
+        data-duration="7"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="ekosistem"
+        data-composition-id="ekosistem"
+        data-composition-src="compositions/ekosistem.html"
+        data-start="39.5"
+        data-duration="8"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="falsafah"
+        data-composition-id="falsafah"
+        data-composition-src="compositions/falsafah.html"
+        data-start="47.5"
+        data-duration="7"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="cta"
+        data-composition-id="cta"
+        data-composition-src="compositions/cta.html"
+        data-start="54.5"
+        data-duration="9"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <!-- SIS ROSE OUTRO — always last. data-start = end of the video's main content. -->
+      <div
+        id="sis-rose-outro"
+        data-composition-id="sis-rose-outro"
+        data-composition-src="compositions/sis-rose-outro.html"
+        data-start="63.5"
+        data-duration="5"
+        data-track-index="1"
+        data-track-kind="graphics"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+
+      <audio id="sfx-whoosh-1" src="assets/sfx/main-whoosh.mp3" data-start="5.5" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-2" src="assets/sfx/main-whoosh.mp3" data-start="11" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-3" src="assets/sfx/main-whoosh.mp3" data-start="17.5" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-4" src="assets/sfx/main-whoosh.mp3" data-start="24" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-5" src="assets/sfx/main-whoosh.mp3" data-start="29" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-6" src="assets/sfx/main-whoosh.mp3" data-start="32.5" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-7" src="assets/sfx/main-whoosh.mp3" data-start="39.5" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-8" src="assets/sfx/main-whoosh.mp3" data-start="47.5" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-whoosh-9" src="assets/sfx/main-whoosh.mp3" data-start="54.5" data-duration="0.57" data-track-index="2" data-volume="0.35"></audio>
+      <audio id="sfx-sparkle-1" src="assets/sfx/main-sparkle.mp3" data-start="6.2" data-duration="1.8" data-track-index="3" data-volume="0.3"></audio>
+      <audio id="sfx-sparkle-2" src="assets/sfx/main-sparkle.mp3" data-start="11.6" data-duration="1.8" data-track-index="3" data-volume="0.3"></audio>
+      <audio id="sfx-sparkle-3" src="assets/sfx/main-sparkle.mp3" data-start="18.1" data-duration="1.8" data-track-index="3" data-volume="0.3"></audio>
+      <audio id="sfx-sparkle-4" src="assets/sfx/main-sparkle.mp3" data-start="24.6" data-duration="1.8" data-track-index="3" data-volume="0.3"></audio>
+      <audio id="sfx-chime" src="assets/sfx/main-chime.mp3" data-start="30.15" data-duration="2.5" data-track-index="3" data-volume="0.3"></audio>
+      <audio id="sfx-pop" src="assets/sfx/main-pop.mp3" data-start="60.1" data-duration="0.72" data-track-index="3" data-volume="0.45"></audio>
     </div>
     <script>
       window.__timelines["main"] = gsap.timeline({ paused: true });
