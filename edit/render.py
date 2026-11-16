@@ -240,11 +240,21 @@ def end_cta():
 END_CTA = end_cta()
 
 
-def sis_tag():
-    t = text_img("Sis Rose", PLAY9, 120, "gold", shadow=False)
-    r = rounded(t.width + 90, t.height + 6, 60, PURPLE_D + (235,), border=6)
-    r.alpha_composite(t, ((r.width - t.width) // 2, 3)); return r
-SIS_TAG = sis_tag()
+# Label besar "SIS ROSE" gaya kaca putih (frosted glass) untuk end card
+TAG_TEXT = text_img("SIS ROSE", PLAY9, 116, WHITE, shadow=True)
+TAG_W, TAG_H = TAG_TEXT.width + 70, 170
+TAG_MASK = Image.new("L", (TAG_W, TAG_H)); ImageDraw.Draw(TAG_MASK).rounded_rectangle((0, 0, TAG_W - 1, TAG_H - 1), 50, fill=255)
+TAG_TINT = Image.new("RGBA", (TAG_W, TAG_H), (25, 10, 40, 110))
+TAG_EDGE = Image.new("RGBA", (TAG_W, TAG_H))
+ImageDraw.Draw(TAG_EDGE).rounded_rectangle((0, 0, TAG_W - 1, TAG_H - 1), 50, outline=(255, 255, 255, 170), width=3)
+def glass_tag(frame, cx, cy, scale, alpha):
+    if alpha <= 0.01: return
+    x, y = int(cx - TAG_W / 2), int(cy - TAG_H / 2)
+    g = frame.crop((x, y, x + TAG_W, y + TAG_H)).filter(ImageFilter.GaussianBlur(18))
+    g.alpha_composite(TAG_TINT); g.alpha_composite(TAG_EDGE)
+    g.alpha_composite(TAG_TEXT, ((TAG_W - TAG_TEXT.width) // 2, (TAG_H - TAG_TEXT.height) // 2 - 4))
+    g.putalpha(TAG_MASK)
+    paste_anim(frame, g, cx, cy, scale, alpha)
 
 # Watermark / trademark "Sis Rose" – teks putih atas pil kaca (frosted glass), sepanjang video
 WM_TEXT = text_img("Sis Rose", PLAY9, 42, WHITE, shadow=False)
@@ -369,7 +379,7 @@ def compose(fr, to):
         s, a = pop(ts, END_CARD_SRC + 0.35, 0.45)
         paste_anim(frame, END_CTA, W / 2, 1800, s, a)
         s, a = pop(ts, 43.98, 0.45)   # label nama muncul tepat bila Kak Ros sebut "Sis Rose"
-        paste_anim(frame, SIS_TAG, W / 2, 1150, s, a)   # atas badan, sedikit atas kotak "Follow Sis Rose"
+        glass_tag(frame, W / 2, 1140, s, a)   # tengah, atas badan, sedikit atas kotak "Follow Sis Rose"
         put_watermark(frame, end_card=True)
         return frame
 
