@@ -245,6 +245,16 @@ def sis_tag():
     r.alpha_composite(t, ((r.width - t.width) // 2, 3)); return r
 SIS_TAG = sis_tag()
 
+# Watermark / trademark "Sis Rose" – kecil, sepanjang video
+def watermark():
+    t = text_img("Sis Rose", PLAY9, 40, "gold", stroke=2, stroke_fill=PURPLE_D, shadow=True)
+    a = t.getchannel("A").point(lambda v: int(v * 0.85)); t.putalpha(a); return t
+WATERMARK = watermark()
+def put_watermark(frame, end_card=False):
+    # bawah kanan; pada end card ke atas kanan supaya tak bertindih dengan CTA
+    y = 22 if end_card else H - WATERMARK.height - 6
+    frame.alpha_composite(WATERMARK, (W - WATERMARK.width - 22, y))
+
 # ---------- sari kata ----------
 def build_words():
     tr = json.load(open(os.path.join(HERE, "transcript.json")))
@@ -348,6 +358,7 @@ def compose(fr, to):
         paste_anim(frame, END_CTA, W / 2, 1800, s, a)
         s, a = pop(ts, 43.98, 0.45)   # muncul tepat bila Kak Ros sebut "Sis Rose"
         paste_anim(frame, SIS_TAG, W / 2, 1150, s, a)
+        put_watermark(frame, end_card=True)
         return frame
 
     cam = camera(fr, z, ay).convert("RGBA")
@@ -436,6 +447,7 @@ def compose(fr, to):
         paste_anim(frame, BRAND, W / 2, 92)
     if sub_y:
         draw_subs(frame, ts, sub_y)
+    put_watermark(frame)
     # flash putih pada transisi
     for tt in TRANSITIONS_OUT:
         d = to - tt
