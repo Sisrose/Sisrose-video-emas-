@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "hook" (5.5 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "hook" (7.6 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -79,7 +79,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 5.5;
+    const D = 7.6;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#hook-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#hook-root .spark").forEach((el, i) => {
@@ -98,12 +98,12 @@
 
     // frame 0 already carries the hook (thumbnail): no fade on the first lines
     tl.fromTo("#hook-l1, #hook-l2", { scale: 1.06 }, { scale: 1, duration: 0.8, ease: "power2.out" }, 0);
-    rise("#hook-l3", 0.45);
-    rise("#hook-l4", 0.9);
+    rise("#hook-l3", 2.5);
+    rise("#hook-l4", 4.55);
     // card on screen from frame 0 too, so the thumbnail shows the product
-    tl.fromTo("#hook-card", { scale: 1.08, rotation: -3 }, { scale: 1, rotation: -3, duration: 5, ease: "sine.out" }, 0);
-    tl.fromTo("#hook-s1 i", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 3.3);
-    tl.fromTo("#hook-s2 i", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 3.75);
+    tl.fromTo("#hook-card", { scale: 1.08, rotation: -3 }, { scale: 1, rotation: -3, duration: 7.2, ease: "sine.out" }, 0);
+    tl.fromTo("#hook-s1 i", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 3.9);
+    tl.fromTo("#hook-s2 i", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 6.0);
 
     exit();
     window.__timelines["hook"] = tl;

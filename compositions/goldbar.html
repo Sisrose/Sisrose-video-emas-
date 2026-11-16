@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "goldbar" (6.5 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "goldbar" (8.2 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -75,7 +75,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 6.5;
+    const D = 8.2;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#goldbar-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#goldbar-root .spark").forEach((el, i) => {
@@ -93,10 +93,10 @@
       tl.to("#goldbar-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     pop("#goldbar-q", 0.05);
-    pop("#goldbar-a", 0.6, 0.65);
-    cardIn("#goldbar-c1", 1.0);
+    pop("#goldbar-a", 3.3, 0.65);
+    cardIn("#goldbar-c1", 1.2);
     ["#goldbar-c2", "#goldbar-c3", "#goldbar-c4"].forEach((s, i) => {
-      const t = 2.3 + i * 1.25;
+      const t = 4.4 + i * 1.0;
       tl.fromTo(s, { opacity: 0, x: 220, rotation: 6 }, { opacity: 1, x: 0, rotation: 0, duration: 0.55, ease: "power3.out" }, t);
     });
 

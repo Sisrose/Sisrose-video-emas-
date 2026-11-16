@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "dinar" (5 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "dinar" (6.8 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -72,7 +72,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 5;
+    const D = 6.8;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#dinar-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#dinar-root .spark").forEach((el, i) => {
@@ -90,9 +90,9 @@
       tl.to("#dinar-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     pop("#dinar-q", 0.05);
-    pop("#dinar-a", 0.6, 0.65);
-    cardIn("#dinar-card", 1.05);
-    tl.fromTo("#dinar-card", { scale: 1 }, { scale: 1.05, duration: 3, ease: "sine.inOut" }, 1.75);
+    pop("#dinar-a", 4.55, 0.65);
+    cardIn("#dinar-card", 1.5);
+    tl.fromTo("#dinar-card", { scale: 1 }, { scale: 1.05, duration: 4, ease: "sine.inOut" }, 2.2);
 
     exit();
     window.__timelines["dinar"] = tl;

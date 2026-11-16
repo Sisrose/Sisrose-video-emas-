@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "peluang" (7 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "peluang" (12.5 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -81,7 +81,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 7;
+    const D = 12.5;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#peluang-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#peluang-root .spark").forEach((el, i) => {
@@ -98,12 +98,12 @@
     const exit = () =>
       tl.to("#peluang-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
-    rise("#peluang-l1", 0.05);
-    rise("#peluang-l2", 0.35);
-    rise("#peluang-l3", 1.6);
-    rise("#peluang-l4", 1.9);
-    pop("#peluang-p1", 3.0);
-    pop("#peluang-p2", 4.1);
+    rise("#peluang-l1", 0.1);
+    rise("#peluang-l2", 1.85);
+    rise("#peluang-l3", 4.1);
+    rise("#peluang-l4", 5.85);
+    pop("#peluang-p1", 7.05);
+    pop("#peluang-p2", 9.15);
 
     exit();
     window.__timelines["peluang"] = tl;
