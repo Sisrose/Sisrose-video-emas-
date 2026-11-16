@@ -29,7 +29,7 @@ SECTION_SRC = [11.4, 14.05, 21.4, 27.8, 31.85, 36.3, 42.25]
 CUT_OUT = [src_to_out(SEGMENTS[i][0]) for i in range(1, len(SEGMENTS))]
 TRANSITIONS_OUT = sorted(set(round(src_to_out(s), 3) for s in SECTION_SRC) | set(round(c, 3) for c in CUT_OUT))
 # Masa visual hadiah 'pop' (src) -> bunyi sparkle
-POPS_SRC = [5.45, 7.8, 19.7, 25.6, 26.45, 26.95, 32.35, 32.7, 38.6]
+POPS_SRC = [5.45, 7.8, 19.7, 25.6, 26.45, 26.95, 32.35, 32.7, 38.6, 43.98]
 POPS_OUT = [src_to_out(s) for s in POPS_SRC]
 END_CARD_SRC = 42.25
 END_CARD_OUT = src_to_out(END_CARD_SRC)

@@ -248,7 +248,7 @@ def _wm_mask():
 WM_MASK = _wm_mask()
 WM_TINT = Image.new("RGBA", (WM_W, WM_H), (25, 10, 40, 95))
 WM_EDGE = (lambda: (lambda e: (ImageDraw.Draw(e).rounded_rectangle((0, 0, WM_W - 1, WM_H - 1), WM_H // 2, outline=(255, 255, 255, 120), width=2), e)[1])(Image.new("RGBA", (WM_W, WM_H))))()
-def put_watermark(frame, end_card=False):
+def put_watermark(frame, end_card=False, scale=1.0, alpha=1.0):
     # bawah kanan; pada end card ke atas kanan supaya tak bertindih dengan CTA
     x = W - WM_W - 24
     y = 24 if end_card else H - WM_H - 18
@@ -256,7 +256,10 @@ def put_watermark(frame, end_card=False):
     glass.alpha_composite(WM_TINT)
     glass.alpha_composite(WM_EDGE)
     glass.alpha_composite(WM_TEXT, ((WM_W - WM_TEXT.width) // 2, (WM_H - WM_TEXT.height) // 2 - 2))
-    frame.paste(glass, (x, y), WM_MASK)
+    if scale >= 0.999 and alpha >= 0.999:
+        frame.paste(glass, (x, y), WM_MASK); return
+    glass.putalpha(WM_MASK)
+    paste_anim(frame, glass, x + WM_W / 2, y + WM_H / 2, scale, alpha)
 
 # ---------- sari kata ----------
 def build_words():
@@ -359,7 +362,8 @@ def compose(fr, to):
         frame = img.resize((W, H), Image.BILINEAR, box=((W - W / zz) / 2, (img.height - H / zz) * 0.9, (W + W / zz) / 2, (img.height - H / zz) * 0.9 + H / zz)).convert("RGBA")
         s, a = pop(ts, END_CARD_SRC + 0.35, 0.45)
         paste_anim(frame, END_CTA, W / 2, 1800, s, a)
-        put_watermark(frame, end_card=True)
+        s, a = pop(ts, 43.98, 0.45)   # nama muncul tepat bila Kak Ros sebut "Sis Rose"
+        put_watermark(frame, end_card=True, scale=s, alpha=a)
         return frame
 
     cam = camera(fr, z, ay).convert("RGBA")
