@@ -1,0 +1,41 @@
+<!-- Small "Sis Rose" brand mark at the bottom of the main video (not shown over the outro). -->
+<template>
+  <style>
+    #root {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    #wm-mark {
+      position: absolute;
+      left: 0;
+      width: 1080px;
+      top: 1352px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 38px;
+      color: #ffb0d8;
+      opacity: 0.9;
+      text-shadow: 0 2px 8px rgba(40, 8, 36, 0.6);
+    }
+    .wm-rule {
+      width: 44px;
+      height: 2px;
+      border-radius: 1px;
+      background: #ffd60a;
+      opacity: 0.8;
+    }
+  </style>
+  <div id="root" data-composition-id="watermark" data-width="1080" data-height="1920">
+    <div id="wm-mark" data-layout-allow-caption-zone>
+      <span class="wm-rule"></span>
+      <span id="wm-text" data-var-text="watermark-text">Sis Rose</span>
+      <span class="wm-rule"></span>
+    </div>
+  </div>
+</template>
