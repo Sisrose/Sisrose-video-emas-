@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "cta" (11.8 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "cta" (12.45 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -76,6 +76,7 @@
         <span id="cta-c3" class="line" style="font-size:54px;margin-top:6px">peluang pendapatan</span>
         <span id="cta-c4" class="line script" style="font-size:64px">jangan dilepaskan!</span>
         <span id="cta-btn" class="btn">Jom daftar dealer sekarang!</span>
+        <span id="cta-l5" class="line script" style="font-size:64px;margin-top:44px">Boleh hubungi Sis Rose</span>
       </div>
 
     </div>
@@ -83,7 +84,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 11.8;
+    const D = 12.45;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#cta-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#cta-root .spark").forEach((el, i) => {
@@ -100,14 +101,15 @@
     const exit = () =>
       tl.to("#cta-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
-    rise("#cta-l1", 0.25);
-    pop("#cta-l2", 1.0, 0.7);
-    rise("#cta-c1", 3.05);
-    rise("#cta-c2", 4.4);
-    rise("#cta-c3", 5.8);
-    pop("#cta-c4", 6.75);
-    pop("#cta-btn", 8.75, 0.7);
-    tl.fromTo("#cta-btn", { scale: 1 }, { scale: 1.06, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3 }, 9.55);
+    rise("#cta-l1", 0.15);
+    pop("#cta-l2", 0.9, 0.7);
+    rise("#cta-c1", 2.4);
+    rise("#cta-c2", 3.7);
+    rise("#cta-c3", 4.95);
+    pop("#cta-c4", 6.0);
+    pop("#cta-btn", 7.2, 0.7);
+    rise("#cta-l5", 10.3);
+    tl.fromTo("#cta-btn", { scale: 1 }, { scale: 1.06, duration: 0.55, ease: "sine.inOut", yoyo: true, repeat: 3 }, 8.0);
 
     
     window.__timelines["cta"] = tl;

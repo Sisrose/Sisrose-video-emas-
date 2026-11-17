@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "ekosistem" (11.5 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "ekosistem" (10.1 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -92,7 +92,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 11.5;
+    const D = 10.1;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#ekosistem-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#ekosistem-root .spark").forEach((el, i) => {
@@ -110,12 +110,12 @@
       tl.to("#ekosistem-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     rise("#ekosistem-l1", 0.2);
-    rise("#ekosistem-l3", 3.2);
+    rise("#ekosistem-l3", 2.1);
     ["#ekosistem-s1", "#ekosistem-s2", "#ekosistem-s3"].forEach((s, i) =>
-      tl.fromTo(s, { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, [4.4, 5.85, 7.35][i]));
-    rise("#ekosistem-l4", 8.6);
-    pop("#ekosistem-l5", 9.1, 0.65);
-    rise("#ekosistem-l6", 10.1);
+      tl.fromTo(s, { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, [3.25, 4.8, 6.05][i]));
+    rise("#ekosistem-l4", 7.25);
+    pop("#ekosistem-l5", 8.0, 0.65);
+    rise("#ekosistem-l6", 9.1);
 
     exit();
     window.__timelines["ekosistem"] = tl;

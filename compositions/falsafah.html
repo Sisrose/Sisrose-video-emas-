@@ -1,4 +1,4 @@
-<!-- Umar Jewelleries video, scene "falsafah" (6.4 s, 1080 × 1920). Generated layout, edit freely. -->
+<!-- Umar Jewelleries video, scene "falsafah" (5.55 s, 1080 × 1920). Generated layout, edit freely. -->
 <template>
   <style>
     #root {
@@ -80,7 +80,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const D = 6.4;
+    const D = 5.55;
     // background: slow sheen sweep and twinkling sparkles
     tl.fromTo("#falsafah-sheen", { x: -900 }, { x: 1500, duration: D, ease: "none" }, 0);
     gsap.utils.toArray("#falsafah-root .spark").forEach((el, i) => {
@@ -98,12 +98,12 @@
       tl.to("#falsafah-content", { opacity: 0, y: -40, duration: 0.3, ease: "power2.in" }, D - 0.38);
 
     pop("#falsafah-q", 0.05);
-    rise("#falsafah-l1", 0.25);
-    rise("#falsafah-l2", 1.35);
-    pop("#falsafah-l3", 2.4, 0.65);
-    tl.fromTo("#falsafah-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 3.3);
-    rise("#falsafah-l4", 3.5);
-    pop("#falsafah-l6", 4.7, 0.7);
+    rise("#falsafah-l1", 0.15);
+    rise("#falsafah-l2", 0.8);
+    pop("#falsafah-l3", 1.95, 0.65);
+    tl.fromTo("#falsafah-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 2.7);
+    rise("#falsafah-l4", 3.05);
+    pop("#falsafah-l6", 4.3, 0.7);
 
     exit();
     window.__timelines["falsafah"] = tl;
